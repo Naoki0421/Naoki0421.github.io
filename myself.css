@@ -22,6 +22,12 @@ html {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
+  /* html要素にも背景を設定してセーフエリアをカバー */
+  background-image: url(./IMG_3981.JPG);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body {
@@ -34,7 +40,7 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed;
   /* フォントサイズの自動調整を防止 */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -49,14 +55,16 @@ body {
 /* 背景画像をセーフエリアまで確実に表示させるための疑似要素 */
 body::before {
   content: "";
-  position: absolute;
-  /* セーフエリア内に収める */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  /* セーフエリアを超えて配置 */
+  top: calc(-1 * env(safe-area-inset-top, 20px));
+  left: calc(-1 * env(safe-area-inset-left, 20px));
+  right: calc(-1 * env(safe-area-inset-right, 20px));
+  bottom: calc(-1 * env(safe-area-inset-bottom, 20px));
+  /* 幅と高さをセーフエリアを含めて拡張 */
+  width: calc(100vw + env(safe-area-inset-left, 20px) + env(safe-area-inset-right, 20px));
+  height: calc(100vh + env(safe-area-inset-top, 20px) + env(safe-area-inset-bottom, 20px));
+  min-height: calc(100dvh + env(safe-area-inset-top, 20px) + env(safe-area-inset-bottom, 20px));
   background-image: url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: center top;
