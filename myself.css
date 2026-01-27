@@ -12,6 +12,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh; /* iOS Safari対応 */
 }
 
 ul {
@@ -22,11 +23,17 @@ ul {
 
 /* ===== 背景設定 ===== */
 html {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh; /* iOS Safari対応 */
+}
+
+body {
   background-image: url(./IMG_3981.JPG); /* 背景画像 */
   background-repeat: no-repeat; /* 繰り返しなし */
   background-position: center top; /* 画像位置 */
   background-size: cover; /* 画面サイズに合わせて表示 */
-  background-attachment: fixed; /* 背景を固定 */
+  /* background-attachment: fixedはiOS Safariで動作しないため削除 */
 }
 
 /* ===== 見出し設定 ===== */
