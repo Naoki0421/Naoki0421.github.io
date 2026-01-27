@@ -46,9 +46,9 @@ body {
   /* フォントサイズの自動調整を防止 */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /* パディングを削除してセーフエリアまで背景を表示 */
-  /* 下部のセーフエリア分も含めた高さを確保 */
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* すべてのパディングを0にしてセーフエリア全体に背景を表示 */
+  padding: 0;
+  margin: 0;
 }
 
 /* ===== コンテンツラッパー設定 ===== */
