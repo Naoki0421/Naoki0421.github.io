@@ -22,6 +22,12 @@ html {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
+  /* html要素にも背景を設定してセーフエリアをカバー */
+  background-image: url(./IMG_3981.JPG);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body {
@@ -50,14 +56,15 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  /* dvhを使ってセーフエリアを含めた高さを確保 */
-  min-height: 100dvh;
+  /* セーフエリアを超えて配置 */
+  top: calc(-1 * env(safe-area-inset-top, 20px));
+  left: calc(-1 * env(safe-area-inset-left, 20px));
+  right: calc(-1 * env(safe-area-inset-right, 20px));
+  bottom: calc(-1 * env(safe-area-inset-bottom, 20px));
+  /* 幅と高さをセーフエリアを含めて拡張 */
+  width: calc(100vw + env(safe-area-inset-left, 20px) + env(safe-area-inset-right, 20px));
+  height: calc(100vh + env(safe-area-inset-top, 20px) + env(safe-area-inset-bottom, 20px));
+  min-height: calc(100dvh + env(safe-area-inset-top, 20px) + env(safe-area-inset-bottom, 20px));
   background-image: url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: center top;
@@ -67,11 +74,6 @@ body::before {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: transform;
-  /* セーフエリアを超えて表示 */
-  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
-  padding-top: env(safe-area-inset-top, 0px);
-  margin-bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
-  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ===== コンテンツラッパー設定 ===== */
