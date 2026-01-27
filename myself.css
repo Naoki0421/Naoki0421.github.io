@@ -22,8 +22,12 @@ html {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  /* 背景色を空の色に設定 */
-  background-color: #87CEEB;
+  /* 背景画像をhtml要素にも設定 */
+  background-image: url(./IMG_3981.JPG);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: scroll;
 }
 
 body {
@@ -36,7 +40,7 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   /* フォントサイズの自動調整を防止 */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
