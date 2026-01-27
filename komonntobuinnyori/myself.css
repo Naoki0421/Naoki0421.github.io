@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+/* ===== リセットCSS開始 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* ===== リセットCSS終了 ===== */
+
+/* ===== スムーズスクロール ===== */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* ===== 見出し設定開始 ===== */
+h1 {
+  font-size: 40px;
+  color: blue;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  margin: 15px 0;
+}
+/* ===== 見出し設定終了 ===== */
+
+/* ===== 段落設定開始 ===== */
+p {
+  color: black;
+  text-align: center;
+  line-height: 1.6;
+}
+/* ===== 段落設定終了 ===== */
+
+/* ===== リスト設定開始 ===== */
+li {
+  list-style: none;
+}
+/* ===== リスト設定終了 ===== */
+
+/* ===== クラス設定開始 ===== */
+.a {
+  padding-left: 20px;
+}
+/* ===== クラス設定終了 ===== */
+
+/* ===== フッター設定開始 ===== */
+.footer {
+  color: black;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 20px 15px;
+  padding-left: max(15px, env(safe-area-inset-left));
+  padding-right: max(15px, env(safe-area-inset-right));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.footer ul {
+  margin: 8px 0;
+  padding: 0;
+}
+
+.footer li {
+  font-size: clamp(11px, 2.5vw, 14px);
+  line-height: 1.6;
+  padding: 4px 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+/* ===== フッター設定終了 ===== */
+
+/* ===== リンクリスト設定開始 ===== */
+.link {
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  margin: 30px 0;
+}
+/* ===== リンクリスト設定終了 ===== */
+
+/* ===== リンク設定開始 ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+  /* タッチ操作の最適化 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+}
+/* ===== リンク設定終了 ===== */
+
+/* ===== iframe設定開始 ===== */
+.iframe-wrp {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.iframe-wrp iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+/* ===== iframe設定終了 ===== */
+
+/* ===== レスポンシブ設定開始 ===== */
+/* タブレット向け */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .link {
+    font-size: 24px;
+  }
+
+  .iframe-wrp {
+    max-width: 500px;
+  }
+
+  .iframe-wrp iframe {
+    height: 350px;
+  }
+}
+
+/* スマートフォン向け */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .link {
+    font-size: 18px;
+  }
+
+  .iframe-wrp {
+    max-width: 100%;
+    margin: 20px auto;
+  }
+
+  .iframe-wrp iframe {
+    height: 250px;
+  }
+}
+/* ===== レスポンシブ設定終了 ===== */

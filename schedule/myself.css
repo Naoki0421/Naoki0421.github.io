@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/* ===== リセットCSS開始 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* ===== リセットCSS終了 ===== */
+
+/* ===== スムーズスクロール ===== */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* ===== 見出し設定開始 ===== */
+h1 {
+  font-size: 40px;
+  color: blue;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  margin: 15px 0;
+}
+/* ===== 見出し設定終了 ===== */
+
+/* ===== 段落設定開始 ===== */
+p {
+  color: black;
+  text-align: center;
+  line-height: 1.8;
+}
+/* ===== 段落設定終了 ===== */
+
+/* ===== フッター設定開始 ===== */
+.footer {
+  color: black;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 20px 15px;
+  padding-left: max(15px, env(safe-area-inset-left));
+  padding-right: max(15px, env(safe-area-inset-right));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.footer ul {
+  margin: 8px 0;
+  padding: 0;
+}
+
+.footer li {
+  font-size: clamp(11px, 2.5vw, 14px);
+  line-height: 1.6;
+  padding: 4px 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+/* ===== フッター設定終了 ===== */
+
+/* ===== リスト設定 ===== */
+li {
+  list-style: none;
+}
+
+/* ===== リンク設定開始 ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+  /* タッチ操作の最適化 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+}
+/* ===== リンク設定終了 ===== */
+
+/* ===== 画像コンテナ設定開始 ===== */
+.image-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.image-container img {
+  width: 70%;
+  max-width: 800px;
+  height: auto;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  /* タッチ操作の最適化 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+}
+
+/* ホバー効果をタッチデバイス以外でのみ適用 */
+@media (hover: hover) {
+  .image-container img:hover {
+    transform: scale(1.05);
+  }
+}
+/* ===== 画像コンテナ設定終了 ===== */
+
+/* ===== レスポンシブ設定開始 ===== */
+/* タブレット向け */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .image-container img {
+    width: 80%;
+  }
+}
+
+/* スマートフォン向け */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .image-container {
+    margin: 20px 0;
+  }
+
+  .image-container img {
+    width: 90%;
+  }
+}
+/* ===== レスポンシブ設定終了 ===== */
