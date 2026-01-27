@@ -52,6 +52,31 @@ p {
 }
 /* ===== 段落設定終了 ===== */
 
+/* ===== フッター設定開始 ===== */
+.footer {
+  color: black;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 20px 15px;
+  padding-left: max(15px, env(safe-area-inset-left));
+  padding-right: max(15px, env(safe-area-inset-right));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+}
+
+.footer ul {
+  margin: 8px 0;
+  padding: 0;
+}
+
+.footer li {
+  font-size: clamp(11px, 2.5vw, 14px);
+  line-height: 1.6;
+  padding: 4px 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+/* ===== フッター設定終了 ===== */
+
 /* ===== リスト設定 ===== */
 li {
   list-style: none;
