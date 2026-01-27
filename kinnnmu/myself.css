@@ -1,4 +1,4 @@
-@charset "UTF-8"; /* 文字コード設定 */
+@charset "UTF-8";
 
 /* ===== リセットCSS開始 ===== */
 * {
@@ -9,9 +9,14 @@
 
 body {
   margin: 0;
-  padding: 0;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
+  /* iPhone のセーフエリア対応 */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  /* フォントサイズの自動調整を防止 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 ul {
@@ -20,63 +25,76 @@ ul {
 }
 /* ===== リセットCSS終了 ===== */
 
+/* ===== スムーズスクロール ===== */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
 /* ===== 見出し設定開始 ===== */
 h1 {
-  font-size: 40px; /* h1タグのフォントサイズ */
-  color: blue; /* h1タグのフォントカラー */
-  text-align: center; /* h1タグのテキスト中央寄せ */
+  font-size: 40px;
+  color: blue;
+  text-align: center;
   margin: 20px 0;
+  padding: 10px;
 }
 
 h2 {
-  font-size: 30px; /* h2タグのフォントサイズ */
-  color: black; /* h2タグのフォントカラー */
-  text-align: center; /* h2タグのテキスト中央寄せ */
+  font-size: 30px;
+  color: black;
+  text-align: center;
   margin: 15px 0;
 }
 /* ===== 見出し設定終了 ===== */
 
 /* ===== 段落設定開始 ===== */
 p {
-  color: black; /* 段落の文字色 */
-  text-align: center; /* 段落のテキスト中央寄せ */
+  color: black;
+  text-align: center;
   line-height: 1.6;
 }
 /* ===== 段落設定終了 ===== */
 
 /* ===== リスト設定開始 ===== */
 li {
-  list-style: none; /* リストマーカーを消す */
+  list-style: none;
 }
 /* ===== リスト設定終了 ===== */
 
 /* ===== クラス設定開始 ===== */
 .a {
-  padding-left: 20px; /* 左余白 */
+  padding-left: 20px;
 }
 /* ===== クラス設定終了 ===== */
 
 /* ===== フッター設定開始 ===== */
 .footer {
-  color: black; /* フッターの文字色 */
-  text-align: center; /* フッターのテキスト中央寄せ */
+  color: black;
+  text-align: center;
   margin-top: 3rem;
+  padding: 20px 15px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 /* ===== フッター設定終了 ===== */
 
 /* ===== リンクリスト設定開始 ===== */
 .link {
-  font-size: 30px; /* リンクリストのフォントサイズ */
-  color: black; /* リンクリストの文字色 */
-  text-align: center; /* リンクテキストの中央寄せ */
+  font-size: 30px;
+  color: black;
+  text-align: center;
   margin: 30px 0;
 }
 /* ===== リンクリスト設定終了 ===== */
 
 /* ===== リンク設定開始 ===== */
 a {
-  text-decoration: none; /* リンクの下線を消す */
-  color: inherit; /* リンクの文字色を継承 */
+  text-decoration: none;
+  color: inherit;
+  /* タッチ操作の最適化 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
 }
 /* ===== リンク設定終了 ===== */
 
@@ -92,6 +110,7 @@ a {
 .iframe-wrp iframe {
   width: 100%;
   height: 450px;
+  border: none;
 }
 /* ===== iframe設定終了 ===== */
 
@@ -99,51 +118,136 @@ a {
 /* タブレット向け */
 @media (max-width: 768px) {
   h1 {
-    font-size: 32px; /* タブレットでh1のサイズを縮小 */
+    font-size: 32px;
   }
 
   h2 {
-    font-size: 24px; /* タブレットでh2のサイズを縮小 */
+    font-size: 24px;
   }
 
   p {
-    font-size: 16px; /* タブレットで段落のサイズを縮小 */
+    font-size: 16px;
   }
 
   .link {
-    font-size: 24px; /* タブレットでリンクのサイズを縮小 */
+    font-size: 24px;
+  }
+
+  .iframe-wrp {
+    max-width: 500px;
   }
 
   .iframe-wrp iframe {
-    height: 350px; /* タブレットでiframeの高さを縮小 */
+    height: 350px;
   }
 }
 
 /* スマートフォン向け */
 @media (max-width: 480px) {
   body {
-    padding: 0 10px;
+    padding: env(safe-area-inset-top) 10px env(safe-area-inset-bottom) 10px;
   }
 
   h1 {
-    font-size: 24px; /* スマホでh1のサイズをさらに縮小 */
+    font-size: 24px;
   }
 
   h2 {
-    font-size: 20px; /* スマホでh2のサイズをさらに縮小 */
+    font-size: 20px;
   }
 
   p {
-    font-size: 14px; /* スマホで段落のサイズをさらに縮小 */
-    padding: 0 10px; /* スマホで左右に余白を追加 */
+    font-size: 14px;
+    padding: 0 10px;
   }
 
   .link {
-    font-size: 18px; /* スマホでリンクのサイズをさらに縮小 */
+    font-size: 18px;
+  }
+
+  .iframe-wrp {
+    max-width: 100%;
+    margin: 20px auto;
   }
 
   .iframe-wrp iframe {
-    height: 250px; /* スマホでiframeの高さをさらに縮小 */
+    height: 250px;
+  }
+}
+
+/* 小さいスマートフォン向け（iPhone SE等） */
+@media (max-width: 375px) {
+  h1 {
+    font-size: 22px;
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 13px;
+    padding: 0 8px;
+  }
+
+  .link {
+    font-size: 16px;
+    margin: 20px 0;
+  }
+
+  .iframe-wrp {
+    margin: 15px auto;
+  }
+
+  .iframe-wrp iframe {
+    height: 220px;
+  }
+
+  .footer {
+    font-size: 14px;
+    margin-top: 2rem;
+    padding: 15px 10px;
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
+  }
+}
+
+/* 横向き表示の最適化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 8px 0;
+  }
+
+  p {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+  .link {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+
+  .iframe-wrp {
+    max-width: 70%;
+    margin: 15px auto;
+  }
+
+  .iframe-wrp iframe {
+    height: 300px;
+  }
+
+  .footer {
+    margin-top: 1.5rem;
+    padding: 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
 }
 /* ===== レスポンシブ設定終了 ===== */

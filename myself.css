@@ -1,4 +1,4 @@
-@charset "UTF-8"; /* 文字コード設定 */
+@charset "UTF-8";
 
 /* ===== リセットCSS開始 ===== */
 * {
@@ -9,10 +9,11 @@
 
 body {
   margin: 0;
-  padding: 0;
   width: 100%;
   min-height: 100vh;
-  min-height: 100dvh; /* iOS Safari対応 */
+  min-height: 100dvh;
+  /* iPhone のセーフエリア対応 */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 ul {
@@ -25,98 +26,188 @@ ul {
 html {
   height: 100%;
   min-height: 100vh;
-  min-height: 100dvh; /* iOS Safari対応 */
+  min-height: 100dvh;
+  /* スムーズスクロール */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-image: url(./IMG_3981.JPG); /* 背景画像 */
-  background-repeat: no-repeat; /* 繰り返しなし */
-  background-position: center top; /* 画像位置 */
-  background-size: cover; /* 画面サイズに合わせて表示 */
-  /* background-attachment: fixedはiOS Safariで動作しないため削除 */
+  background-image: url(./IMG_3981.JPG);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  /* フォントサイズの自動調整を防止 */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* ===== 見出し設定 ===== */
 h1 {
-  font-size: 40px; /* h1のフォントサイズ */
-  color: deeppink; /* h1のフォントカラー */
-  text-align: center; /* h1のテキスト中央寄せ */
+  font-size: 40px;
+  color: deeppink;
+  text-align: center;
+  padding: 10px;
 }
 
 h2 {
-  font-size: 30px; /* h2のフォントサイズ */
-  color: brown; /* h2のフォントカラー */
-  text-align: center; /* h2のテキスト中央寄せ */
+  font-size: 30px;
+  color: brown;
+  text-align: center;
+  padding: 10px;
 }
 
 /* ===== 段落設定 ===== */
 p {
-  font-size: 30px; /* pのフォントサイズ */
-  color: yellow; /* 段落の文字色 */
-  text-align: center; /* 段落のテキスト中央寄せ */
+  font-size: 30px;
+  color: yellow;
+  text-align: center;
+  padding: 10px 15px;
+  line-height: 1.6;
 }
 
 /* ===== リンクリスト設定 ===== */
 .link {
-  font-size: 30px; /* リンクリストのフォントサイズ */
-  color: white; /* リンクリストの文字色 */
-  text-align: center; /* リンクリストのテキスト中央寄せ */
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.link ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.link li {
+  padding: 5px;
 }
 
 /* ===== リンク設定 ===== */
 a {
-  text-decoration: none; /* リンクの下線を消す */
-  color: inherit; /* リンクの文字色を継承 */
+  text-decoration: none;
+  color: inherit;
+  /* タッチ操作の最適化 */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+  tap-highlight-color: rgba(255, 255, 255, 0.3);
+  touch-action: manipulation;
+  /* タップ領域を広げる */
+  display: inline-block;
+  padding: 10px 15px;
+  min-height: 44px; /* Appleのヒューマンインターフェースガイドライン推奨 */
+  line-height: 1.5;
 }
 
 /* ===== フッター設定 ===== */
 .footer {
-  color: white; /* フッターの文字色 */
-  text-align: center; /* フッターのテキスト中央寄せ */
+  color: white;
+  text-align: center;
   margin-top: 2rem;
+  padding: 20px 15px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 
 /* ===== リスト設定 ===== */
 li {
-  list-style: none; /* リストマーカーを消す */
+  list-style: none;
 }
 
 /* ===== レスポンシブ設定 ===== */
+
 /* タブレット向け */
 @media (max-width: 768px) {
   h1 {
-    font-size: 32px; /* タブレットでh1のサイズを縮小 */
+    font-size: 36px;
   }
 
   h2 {
-    font-size: 24px; /* タブレットでh2のサイズを縮小 */
+    font-size: 28px;
   }
 
   p {
-    font-size: 22px; /* タブレットで段落のサイズを縮小 */
+    font-size: 24px;
   }
 
   .link {
-    font-size: 22px; /* タブレットでリンクのサイズを縮小 */
+    font-size: 24px;
   }
 }
 
-/* スマートフォン向け */
+/* スマートフォン向け（標準的なサイズ） */
 @media (max-width: 480px) {
   h1 {
-    font-size: 24px; /* スマホでh1のサイズをさらに縮小 */
+    font-size: 32px;
   }
 
   h2 {
-    font-size: 20px; /* スマホでh2のサイズをさらに縮小 */
+    font-size: 24px;
   }
 
   p {
-    font-size: 16px; /* スマホで段落のサイズをさらに縮小 */
-    padding: 0 10px; /* スマホで左右に余白を追加 */
+    font-size: 20px;
   }
 
   .link {
-    font-size: 18px; /* スマホでリンクのサイズをさらに縮小 */
+    font-size: 20px;
+  }
+
+  a {
+    padding: 12px 10px;
+  }
+}
+
+/* 小さいスマートフォン向け（iPhone SE等） */
+@media (max-width: 375px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 18px;
+    padding: 8px 10px;
+  }
+
+  .link {
+    font-size: 18px;
+  }
+
+  a {
+    padding: 10px 8px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
+/* 横向き表示の最適化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  h1 {
+    font-size: 28px;
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 22px;
+    padding: 5px;
+  }
+
+  p {
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+
+  .link {
+    font-size: 18px;
+    padding: 10px 5px;
+  }
+
+  .link ul {
+    gap: 10px;
   }
 }
