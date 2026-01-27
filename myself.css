@@ -30,21 +30,24 @@ html {
   /* スムーズスクロール */
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-}
-
-body {
-  /* ノッチ部分まで背景を表示させるための設定 */
-  min-height: calc(100dvh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+  /* 背景をセーフエリアまで表示 */
   background-image: url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: fixed; /* 背景を固定 */
+  background-attachment: fixed;
+}
+
+body {
+  /* ノッチ部分まで背景を表示させるための設定 */
+  min-height: 100dvh;
+  background: transparent; /* htmlの背景を透過させて表示 */
   /* フォントサイズの自動調整を防止 */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /* 背景がノッチエリアまで拡張されるように */
+  /* セーフエリアに対応したパディング */
   padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ===== コンテンツラッパー設定 ===== */
