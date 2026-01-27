@@ -22,12 +22,6 @@ html {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  /* html要素にも背景を設定してセーフエリアをカバー */
-  background-image: url(./IMG_3981.JPG);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: scroll;
 }
 
 body {
