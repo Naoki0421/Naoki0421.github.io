@@ -41,6 +41,37 @@ body {
   /* パディングなしでセーフエリア全体に背景を表示 */
   padding: 0;
   margin: 0;
+  /* 相対位置指定で疑似要素を配置可能にする */
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 背景画像をセーフエリアまで確実に表示させるための疑似要素 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  /* dvhを使ってセーフエリアを含めた高さを確保 */
+  min-height: 100dvh;
+  background-image: url(./IMG_3981.JPG);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  z-index: -1;
+  /* iOS用の拡張 - ハードウェアアクセラレーション */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  /* セーフエリアを超えて表示 */
+  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  margin-bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ===== コンテンツラッパー設定 ===== */
