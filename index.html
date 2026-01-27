@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <!-- Androidのアドレスバー/ステータスバーの色 -->
     <meta name="theme-color" content="#a8daeb" />
-    <!-- PWA対応（ホーム画面追加時） -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!-- iOSステータスバーを透過させて背景色を反映 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>自己紹介</title>
     <link rel="stylesheet" href="./myself.css" />
@@ -34,7 +31,7 @@
             <li><a href="./photogallery/myself_2.html">フォトギャラリー</a></li>
             <li><a href="./kazoku/myself.html">家族紹介</a></li>
             <li><a href="./tabi/myself.html">旅</a></li>
-            <li><a href="./kinnnmu/myself.html">勤務���</a></li>
+            <li><a href="./kinnnmu/myself.html">勤務校</a></li>
           </ul>
         </div>
       </div>
@@ -45,5 +42,17 @@
         </ul>
       </div>
     </div>
+
+    <!-- iOS Safari アドレスバー対応スクリプト -->
+    <script>
+      const setDocHeight = () => {
+        document.documentElement.style.setProperty('--doc-height', `${window.innerHeight}px`);
+      };
+
+      // ページ読み込み時とリサイズ時に高さを再計算
+      window.addEventListener('resize', setDocHeight);
+      window.addEventListener('orientationchange', setDocHeight);
+      setDocHeight();
+    </script>
   </body>
 </html>
