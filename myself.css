@@ -1,5 +1,23 @@
 @charset "UTF-8"; /* 文字コード設定 */
 
+/* ===== リセットCSS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
 /* ===== 背景設定 ===== */
 html {
   background-image: url(./IMG_3981.JPG); /* 背景画像 */
@@ -95,3 +113,4 @@ li {
     font-size: 18px; /* スマホでリンクのサイズをさらに縮小 */
   }
 }
+
