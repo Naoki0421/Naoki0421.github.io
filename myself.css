@@ -27,7 +27,7 @@ html {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed; /* 固定 */
 }
 
 body {
@@ -40,7 +40,7 @@ body {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed; /* 固定 */
   /* フォントサイズの自動調整を防止 */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
