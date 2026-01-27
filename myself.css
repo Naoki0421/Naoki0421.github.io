@@ -13,79 +13,95 @@ ul {
 }
 /* ===== リセットCSS終了 ===== */
 
-/* ===== 背景設定 ===== */
+/* ===== 背景設定（iOS対応） ===== */
 html {
   width: 100%;
   height: 100%;
-  /* スムーズスクロール */
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  padding: 0;
-  margin: 0;
-  /* 背景画像をhtml要素にも設定 */
-  background-image: url(./IMG_3981.JPG);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed; /* 固定 */
+  overflow: hidden; /* htmlのスクロールを無効化 */
+  position: fixed; /* iOSでの余分なスクロールを防止 */
 }
 
 body {
-  /* ノッチ部分まで背景を表示させるための設定 */
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  /* 背景画像をbodyに直接設定（iOS対応） */
-  background-image: url(./IMG_3981.JPG);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed; /* 固定 */
-  /* フォントサイズの自動調整を防止 */
+  height: 100%;
+  overflow: hidden; /* bodyのスクロールも無効化 */
+  position: relative;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /* パディングなし */
-  padding: 0;
   margin: 0;
-  overflow-x: hidden;
+  padding: 0;
 }
 
-/* ===== コンテンツラッパー設定 ===== */
-/* コンテンツラッパー（必要に応じて安全領域を確保） */
+/* 背景固定レイヤー（iOS対応） */
+.background-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./IMG_3981.JPG);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -1; /* コンテンツの後ろに配置 */
+  /* iOSでの背景のちらつき防止 */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* コンテンツラッパー（スクロール可能） */
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; /* iOSのスムーズスクロール */
+  z-index: 1;
+}
+
+/* ===== コンテンツ設定 ===== */
 .hello {
-  padding-top: calc(10px + env(safe-area-inset-top, 0px));
-  padding-right: env(safe-area-inset-right, 10px);
+  padding-top: max(20px, env(safe-area-inset-top));
+  padding-right: max(15px, env(safe-area-inset-right));
   padding-bottom: 20px;
-  padding-left: env(safe-area-inset-left, 10px);
+  padding-left: max(15px, env(safe-area-inset-left));
+  min-height: 80vh;
 }
 
 /* ===== 見出し設定 ===== */
 h1 {
-  font-size: 40px;
+  font-size: clamp(28px, 5vw, 40px);
   color: deeppink;
   text-align: center;
   padding: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-  font-size: 30px;
+  font-size: clamp(22px, 4vw, 30px);
   color: brown;
   text-align: center;
   padding: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ===== 段落設定 ===== */
 p {
-  font-size: 30px;
+  font-size: clamp(18px, 3vw, 30px);
   color: yellow;
   text-align: center;
   padding: 10px 15px;
   line-height: 1.6;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* ===== リンクリスト設定 ===== */
 .link {
-  font-size: 30px;
+  font-size: clamp(18px, 3vw, 30px);
   color: white;
   text-align: center;
   padding: 20px 10px;
@@ -95,35 +111,46 @@ p {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  align-items: center;
 }
 
 .link li {
   padding: 5px;
+  width: 100%;
+  max-width: 500px;
 }
 
 /* ===== リンク設定 ===== */
 a {
   text-decoration: none;
-  color: inherit;
-  /* タッチ操作の最適化 */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
   tap-highlight-color: rgba(255, 255, 255, 0.3);
   touch-action: manipulation;
-  /* タップ領域を広げる */
-  display: inline-block;
-  padding: 10px 15px;
-  min-height: 44px; /* Appleのヒューマンインターフェースガイドライン推奨 */
+  display: block;
+  padding: 15px 20px;
+  min-height: 44px;
   line-height: 1.5;
+  transition: background-color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+a:active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ===== フッター設定 ===== */
 .footer {
   color: white;
   text-align: center;
-  margin-top: 2rem;
-  padding: 20px 15px;
-  padding-left: env(safe-area-inset-left, 15px);
-  padding-right: env(safe-area-inset-right, 15px);
+  padding: 30px 15px;
+  padding-left: max(15px, env(safe-area-inset-left));
+  padding-right: max(15px, env(safe-area-inset-right));
+  padding-bottom: max(30px, env(safe-area-inset-bottom));
+  font-size: clamp(12px, 2vw, 16px);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 /* ===== リスト設定 ===== */
@@ -135,97 +162,95 @@ li {
 
 /* タブレット向け */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 36px;
+  .hello {
+    padding-top: max(15px, env(safe-area-inset-top));
   }
 
-  h2 {
-    font-size: 28px;
-  }
-
-  p {
-    font-size: 24px;
-  }
-
-  .link {
-    font-size: 24px;
+  .link ul {
+    gap: 12px;
   }
 }
 
-/* スマートフォン向け（標準的なサイズ） */
+/* スマートフォン向け */
 @media (max-width: 480px) {
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 20px;
+  .hello {
+    padding-top: max(15px, env(safe-area-inset-top));
+    padding-bottom: 15px;
   }
 
   .link {
-    font-size: 20px;
+    padding: 15px 10px;
+  }
+
+  .link ul {
+    gap: 10px;
   }
 
   a {
-    padding: 12px 10px;
+    padding: 12px 15px;
   }
 }
 
-/* 小さいスマートフォン向け（iPhone SE等） */
+/* 小さいスマートフォン向け */
 @media (max-width: 375px) {
-  h1 {
-    font-size: 28px;
-  }
-
-  h2 {
-    font-size: 22px;
+  .hello {
+    padding-top: max(10px, env(safe-area-inset-top));
   }
 
   p {
-    font-size: 18px;
     padding: 8px 10px;
   }
 
-  .link {
-    font-size: 18px;
-  }
-
   a {
-    padding: 10px 8px;
-  }
-
-  .footer {
-    font-size: 14px;
+    padding: 10px 12px;
   }
 }
 
 /* 横向き表示の最適化 */
 @media (max-height: 500px) and (orientation: landscape) {
   h1 {
-    font-size: 28px;
+    font-size: 24px;
     padding: 5px;
   }
 
   h2 {
-    font-size: 22px;
+    font-size: 20px;
     padding: 5px;
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px 10px;
+    line-height: 1.4;
   }
 
   .link {
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 5px;
   }
 
   .link ul {
-    gap: 10px;
+    gap: 8px;
+  }
+
+  a {
+    padding: 8px 12px;
+    min-height: 36px;
+  }
+
+  .hello {
+    padding-top: max(10px, env(safe-area-inset-top));
+    padding-bottom: 10px;
+  }
+
+  .footer {
+    padding: 15px;
+  }
+}
+
+/* 高解像度ディスプレイ対応 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .background-fixed {
+    background-image: url(./IMG_3981.JPG);
   }
 }
