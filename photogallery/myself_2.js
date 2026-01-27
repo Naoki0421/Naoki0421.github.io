@@ -2,15 +2,8 @@
 const imgHovers = document.querySelectorAll('.img-hover');
 
 imgHovers.forEach(imgHover => {
-  // タップ（クリック）イベント
+  // クリック/タップイベント（両方のデバイスに対応）
   imgHover.addEventListener('click', () => {
     imgHover.classList.toggle('active');
   });
-
-  // タッチデバイス用の最適化
-  imgHover.addEventListener('touchstart', (e) => {
-    // デフォルトの動作を防止して、スムーズなタップを実現
-    e.preventDefault();
-    imgHover.classList.toggle('active');
-  }, { passive: false });
 });
