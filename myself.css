@@ -40,36 +40,10 @@ body {
   /* フォントサイズの自動調整を防止 */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /* パディングなしでセーフエリア全体に背景を表示 */
+  /* パディングなし */
   padding: 0;
   margin: 0;
-  /* 相対位置指定で疑似要素を配置可能にする */
-  position: relative;
   overflow-x: hidden;
-}
-
-/* 背景画像をセーフエリアまで確実に表示させるための疑似要素 */
-body::before {
-  content: "";
-  position: fixed;
-  /* セーフエリアを大きく超えて配置 */
-  top: -100px;
-  left: -100px;
-  right: -100px;
-  bottom: -100px;
-  /* 幅と高さを大きく拡張 */
-  width: calc(100vw + 200px);
-  height: calc(100vh + 200px);
-  min-height: calc(100dvh + 200px);
-  background-image: url(./IMG_3981.JPG);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  z-index: -1;
-  /* iOS用の拡張 - ハードウェアアクセラレーション */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform;
 }
 
 /* ===== コンテンツラッパー設定 ===== */
