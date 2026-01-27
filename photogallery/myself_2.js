@@ -1,20 +1,9 @@
-// すべての画像要素を取得
-const images = document.querySelectorAll('.marquee-inner-stop img');
-const marqueeInners = document.querySelectorAll('.marquee-inner-stop');
+// タップで画像を切り替える機能
+const imgHovers = document.querySelectorAll('.img-hover');
 
-// 各画像にホバーイベントを追加
-images.forEach(img => {
-  img.addEventListener('mouseenter', () => {
-    // すべての .marquee-inner-stop のアニメーションを停止
-    marqueeInners.forEach(marqueeInner => {
-      marqueeInner.classList.add('marquee-paused');
-    });
-  });
-
-  img.addEventListener('mouseleave', () => {
-    // すべての .marquee-inner-stop のアニメーションを再開
-    marqueeInners.forEach(marqueeInner => {
-      marqueeInner.classList.remove('marquee-paused');
-    });
+imgHovers.forEach(imgHover => {
+  // クリック/タップイベント（両方のデバイスに対応）
+  imgHover.addEventListener('click', () => {
+    imgHover.classList.toggle('active');
   });
 });
