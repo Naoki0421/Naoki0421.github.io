@@ -22,12 +22,8 @@ html {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  /* html要素にも背景を設定してセーフエリアをカバー */
-  background-image: url(./IMG_3981.JPG);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
+  /* 背景色を空の色に設定 */
+  background-color: #87CEEB;
 }
 
 body {
@@ -56,15 +52,15 @@ body {
 body::before {
   content: "";
   position: fixed;
-  /* セーフエリアを超えて配置 */
-  top: calc(-1 * env(safe-area-inset-top, 20px));
-  left: calc(-1 * env(safe-area-inset-left, 20px));
-  right: calc(-1 * env(safe-area-inset-right, 20px));
-  bottom: calc(-1 * env(safe-area-inset-bottom, 20px));
-  /* 幅と高さをセーフエリアを含めて拡張 */
-  width: calc(100vw + env(safe-area-inset-left, 20px) + env(safe-area-inset-right, 20px));
-  height: calc(100vh + env(safe-area-inset-top, 20px) + env(safe-area-inset-bottom, 20px));
-  min-height: calc(100dvh + env(safe-area-inset-top, 20px) + env(safe-area-inset-bottom, 20px));
+  /* セーフエリアを大きく超えて配置 */
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  bottom: -100px;
+  /* 幅と高さを大きく拡張 */
+  width: calc(100vw + 200px);
+  height: calc(100vh + 200px);
+  min-height: calc(100dvh + 200px);
   background-image: url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: center top;
