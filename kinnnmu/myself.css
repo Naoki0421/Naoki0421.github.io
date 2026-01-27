@@ -1,16 +1,38 @@
 @charset "UTF-8"; /* 文字コード設定 */
 
+/* ===== リセットCSS開始 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* ===== リセットCSS終了 ===== */
+
 /* ===== 見出し設定開始 ===== */
 h1 {
   font-size: 40px; /* h1タグのフォントサイズ */
   color: blue; /* h1タグのフォントカラー */
   text-align: center; /* h1タグのテキスト中央寄せ */
+  margin: 20px 0;
 }
 
 h2 {
   font-size: 30px; /* h2タグのフォントサイズ */
   color: black; /* h2タグのフォントカラー */
   text-align: center; /* h2タグのテキスト中央寄せ */
+  margin: 15px 0;
 }
 /* ===== 見出し設定終了 ===== */
 
@@ -18,6 +40,7 @@ h2 {
 p {
   color: black; /* 段落の文字色 */
   text-align: center; /* 段落のテキスト中央寄せ */
+  line-height: 1.6;
 }
 /* ===== 段落設定終了 ===== */
 
@@ -37,6 +60,7 @@ li {
 .footer {
   color: black; /* フッターの文字色 */
   text-align: center; /* フッターのテキスト中央寄せ */
+  margin-top: 3rem;
 }
 /* ===== フッター設定終了 ===== */
 
@@ -45,6 +69,7 @@ li {
   font-size: 30px; /* リンクリストのフォントサイズ */
   color: black; /* リンクリストの文字色 */
   text-align: center; /* リンクテキストの中央寄せ */
+  margin: 30px 0;
 }
 /* ===== リンクリスト設定終了 ===== */
 
@@ -60,7 +85,8 @@ a {
   position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 30px auto;
+  text-align: center;
 }
 
 .iframe-wrp iframe {
@@ -95,6 +121,10 @@ a {
 
 /* スマートフォン向け */
 @media (max-width: 480px) {
+  body {
+    padding: 0 10px;
+  }
+
   h1 {
     font-size: 24px; /* スマホでh1のサイズをさらに縮小 */
   }

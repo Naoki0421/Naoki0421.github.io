@@ -1,6 +1,27 @@
 @charset "UTF-8"; /*文字設定*/
 
+/* ===== リセットCSS開始 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* ===== リセットCSS終了 ===== */
+
 h1 {
+  margin: 20px 0;
   font-size: 50px; /*h1タグの中身のフォントサイズ*/
   color: blue; /*h1タグの中身のフォントカラー*/
   text-align: center; /*h1タグの中身のテキストセンター寄せ*/
@@ -9,10 +30,12 @@ h1 {
 p {
   color: black;
   text-align: center;
+  margin-top: 10px;
 }
 
 .pic {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .contents-bottom {
@@ -23,10 +46,9 @@ p {
 }
 
 .contents {
-  height: 1980px;
-  width: 1500px;
-  padding: 30px;
-  /*contentsの高さを600px幅を900px*/
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 10px;
 }
 
 li {
@@ -34,18 +56,22 @@ li {
 }
 
 .a {
-  padding-left: 20px;
+  padding: 10px 20px;
+  text-align: center;
 }
 
 .footer {
   color: black;
   text-align: center;
+  margin-top: 40px;
 }
 .pic img {
-  width: 450px;
-  height: 300px;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
   padding: 10px;
-  /*画像のサイズを450px×300pxに設定*/
+  display: block;
+  margin: 0 auto;
 }
 
 /* ===== レスポンシブ設定開始 ===== */

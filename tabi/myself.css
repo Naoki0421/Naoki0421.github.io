@@ -1,16 +1,38 @@
 @charset "UTF-8"; /* 文字コード設定 */
 
+/* ===== リセットCSS開始 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* ===== リセットCSS終了 ===== */
+
 /* ===== 見出し設定開始 ===== */
 h1 {
   font-size: 40px; /* h1のフォントサイズ */
   color: blue; /* h1のフォントカラー */
   text-align: center; /* h1のテキスト中央寄せ */
+  margin: 20px 0;
 }
 
 h2 {
   font-size: 30px; /* h2のフォントサイズ */
   color: black; /* h2のフォントカラー */
   text-align: center; /* h2のテキスト中央寄せ */
+  margin: 15px 0;
 }
 /* ===== 見出し設定終了 ===== */
 
@@ -18,33 +40,15 @@ h2 {
 p {
   color: black; /* 段落の文字色 */
   text-align: center; /* 段落のテキスト中央寄せ */
+  line-height: 1.8;
 }
 /* ===== 段落設定終了 ===== */
-
-/* ===== リスト設定開始 ===== */
-li {
-  list-style: none; /* リストマーカーを消す */
-}
-/* ===== リスト設定終了 ===== */
-
-/* ===== クラス設定開始 ===== */
-.a {
-  padding-left: 20px; /* 左余白 */
-}
-/* ===== クラス設定終了 ===== */
-
-/* ===== フッター設定開始 ===== */
-.footer {
-  color: black; /* フッターの文字色 */
-  text-align: center; /* フッターのテキスト中央寄せ */
-}
-/* ===== フッター設定終了 ===== */
-/* ===== フッター設定 ===== */
 
 /* ===== リスト設定 ===== */
 li {
   list-style: none; /* リストマーカーを消す */
 }
+
 /* ===== リンク設定開始 ===== */
 a {
   text-decoration: none; /* リンクの下線を消す */
@@ -52,12 +56,24 @@ a {
 }
 /* ===== リンク設定終了 ===== */
 
-/* ===== 画像レスポンシブ設定開始 ===== */
-img {
-  max-width: 100%; /* 画像の最大幅を100%に */
-  height: auto; /* 高さを自動調整 */
+/* ===== 画像コンテナ設定開始 ===== */
+.image-container {
+  text-align: center;
+  margin: 30px 0;
 }
-/* ===== 画像レスポンシブ設定終了 ===== */
+
+.image-container img {
+  width: 70%;
+  max-width: 800px;
+  height: auto;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+/* ===== 画像コンテナ設定終了 ===== */
 
 /* ===== レスポンシブ設定開始 ===== */
 /* タブレット向け */
@@ -72,10 +88,11 @@ img {
 
   p {
     font-size: 16px; /* タブレットで段落のサイズを縮小 */
+    padding: 0 10px;
   }
 
-  img {
-    width: 80% !important; /* タブレットで画像サイズを80%に */
+  .image-container img {
+    width: 80%;
   }
 }
 
@@ -94,8 +111,8 @@ img {
     padding: 0 10px; /* スマホで左右に余白を追加 */
   }
 
-  img {
-    width: 90% !important; /* スマホで画像サイズを90%に */
+  .image-container img {
+    width: 90%;
   }
 }
 /* ===== レスポンシブ設定終了 ===== */
