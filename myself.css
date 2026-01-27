@@ -35,7 +35,8 @@ html {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: fixed;
+  /* iOSで初回表示時に背景が表示されない問題を回避 */
+  background-attachment: scroll;
 }
 
 body {
