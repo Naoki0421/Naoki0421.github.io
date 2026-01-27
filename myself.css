@@ -27,7 +27,7 @@ html {
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 body {
@@ -55,7 +55,7 @@ body {
 /* 背景画像をセーフエリアまで確実に表示させるための疑似要素 */
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   /* セーフエリアを超えて配置 */
   top: calc(-1 * env(safe-area-inset-top, 20px));
   left: calc(-1 * env(safe-area-inset-left, 20px));
@@ -152,7 +152,7 @@ a {
   padding-right: env(safe-area-inset-right, 15px);
 }
 
-/* ===== リスト設定 ===== */
+/* ===== リス��設定 ===== */
 li {
   list-style: none;
 }
