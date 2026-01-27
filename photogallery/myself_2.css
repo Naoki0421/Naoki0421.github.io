@@ -137,7 +137,8 @@ a {
   .img-hover {
     width: 90%; /* スマホで画像コンテナの幅を調整 */
     max-width: 300px;
-    height: 200px;
+    height: auto;
+    aspect-ratio: 3 / 2;
   }
 
   .img-hover img {
