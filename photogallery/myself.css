@@ -1,0 +1,100 @@
+@charset "UTF-8"; /*文字設定*/
+
+h1 {
+  font-size: 50px; /*h1タグの中身のフォントサイズ*/
+  color: blue; /*h1タグの中身のフォントカラー*/
+  text-align: center; /*h1タグの中身のテキストセンター寄せ*/
+}
+
+p {
+  color: black;
+  text-align: center;
+}
+
+.pic {
+  display: flex;
+}
+
+.contents-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*contents-bottomの中身をセンター寄せ*/
+}
+
+.contents {
+  height: 1980px;
+  width: 1500px;
+  padding: 30px;
+  /*contentsの高さを600px幅を900px*/
+}
+
+li {
+  list-style: none;
+}
+
+.a {
+  padding-left: 20px;
+}
+
+.footer {
+  color: black;
+  text-align: center;
+}
+.pic img {
+  width: 450px;
+  height: 300px;
+  padding: 10px;
+  /*画像のサイズを450px×300pxに設定*/
+}
+
+/* ===== レスポンシブ設定開始 ===== */
+/* タブレット向け */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px; /* タブレットでh1のサイズを調整 */
+  }
+
+  .pic {
+    flex-wrap: wrap; /* 画像を折り返す */
+  }
+
+  .pic img {
+    width: 350px; /* タブレットで画像サイズを縮小 */
+    height: 233px;
+  }
+
+  .contents {
+    width: 100%; /* 幅を100%に */
+    height: auto; /* 高さを自動調整 */
+  }
+}
+
+/* スマートフォン向け */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px; /* スマホでh1のサイズをさらに縮小 */
+  }
+
+  .pic {
+    flex-direction: column; /* 画像を縦並びに */
+    align-items: center; /* 中央揃え */
+  }
+
+  .pic img {
+    width: 90%; /* スマホで画像サイズを調整 */
+    max-width: 300px;
+    height: auto; /* 高さを自動調整 */
+  }
+
+  .contents {
+    width: 100%;
+    height: auto;
+    padding: 10px; /* パディングを縮小 */
+  }
+
+  .contents-bottom {
+    padding: 0 10px; /* 左右に余白を追加 */
+  }
+}
+/* ===== レスポンシブ設定終了 ===== */

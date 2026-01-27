@@ -1,0 +1,97 @@
+@charset "UTF-8"; /* 文字コード設定 */
+
+/* ===== 背景設定 ===== */
+html {
+  background-image: url(./IMG_3981.JPG); /* 背景画像 */
+  background-repeat: no-repeat; /* 繰り返しなし */
+  background-position: center top; /* 画像位置 */
+  background-size: cover; /* 画面サイズに合わせて表示 */
+}
+
+/* これらのプロパティは html 要素に適用されているため、ページ
+全体の背景として機能します。myself.html で直接使っていなくても、
+HTMLファイルを開くと自動的にこのCSSが適用され、背景画像が表示されます。*/
+
+/* ===== 見出し設定 ===== */
+h1 {
+  font-size: 40px; /* h1のフォントサイズ */
+  color: deeppink; /* h1のフォントカラー */
+  text-align: center; /* h1のテキスト中央寄せ */
+}
+
+h2 {
+  font-size: 30px; /* h2のフォントサイズ */
+  color: brown; /* h2のフォントカラー */
+  text-align: center; /* h2のテキスト中央寄せ */
+}
+
+/* ===== 段落設定 ===== */
+p {
+  font-size: 30px; /* pのフォントサイズ */
+  color: yellow; /* 段落の文字色 */
+  text-align: center; /* 段落のテキスト中央寄せ */
+}
+
+/* ===== リンクリスト設定 ===== */
+.link {
+  font-size: 30px; /* リンクリストのフォントサイズ */
+  color: white; /* リンクリストの文字色 */
+  text-align: center; /* リンクリストのテキスト中央寄せ */
+}
+
+/* ===== リンク設定 ===== */
+a {
+  text-decoration: none; /* リンクの下線を消す */
+  color: inherit; /* リンクの文字色を継承 */
+}
+
+/* ===== フッター設定 ===== */
+.footer {
+  color: white; /* フッターの文字色 */
+  text-align: center; /* フッターのテキスト中央寄せ */
+}
+
+/* ===== リスト設定 ===== */
+li {
+  list-style: none; /* リストマーカーを消す */
+}
+
+/* ===== レスポンシブ設定 ===== */
+/* タブレット向け */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px; /* タブレットでh1のサイズを縮小 */
+  }
+
+  h2 {
+    font-size: 24px; /* タブレットでh2のサイズを縮小 */
+  }
+
+  p {
+    font-size: 22px; /* タブレットで段落のサイズを縮小 */
+  }
+
+  .link {
+    font-size: 22px; /* タブレットでリンクのサイズを縮小 */
+  }
+}
+
+/* スマートフォン向け */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px; /* スマホでh1のサイズをさらに縮小 */
+  }
+
+  h2 {
+    font-size: 20px; /* スマホでh2のサイズをさらに縮小 */
+  }
+
+  p {
+    font-size: 16px; /* スマホで段落のサイズをさらに縮小 */
+    padding: 0 10px; /* スマホで左右に余白を追加 */
+  }
+
+  .link {
+    font-size: 18px; /* スマホでリンクのサイズをさらに縮小 */
+  }
+}

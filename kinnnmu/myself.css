@@ -1,0 +1,119 @@
+@charset "UTF-8"; /* 文字コード設定 */
+
+/* ===== 見出し設定開始 ===== */
+h1 {
+  font-size: 40px; /* h1タグのフォントサイズ */
+  color: blue; /* h1タグのフォントカラー */
+  text-align: center; /* h1タグのテキスト中央寄せ */
+}
+
+h2 {
+  font-size: 30px; /* h2タグのフォントサイズ */
+  color: black; /* h2タグのフォントカラー */
+  text-align: center; /* h2タグのテキスト中央寄せ */
+}
+/* ===== 見出し設定終了 ===== */
+
+/* ===== 段落設定開始 ===== */
+p {
+  color: black; /* 段落の文字色 */
+  text-align: center; /* 段落のテキスト中央寄せ */
+}
+/* ===== 段落設定終了 ===== */
+
+/* ===== リスト設定開始 ===== */
+li {
+  list-style: none; /* リストマーカーを消す */
+}
+/* ===== リスト設定終了 ===== */
+
+/* ===== クラス設定開始 ===== */
+.a {
+  padding-left: 20px; /* 左余白 */
+}
+/* ===== クラス設定終了 ===== */
+
+/* ===== フッター設定開始 ===== */
+.footer {
+  color: black; /* フッターの文字色 */
+  text-align: center; /* フッターのテキスト中央寄せ */
+}
+/* ===== フッター設定終了 ===== */
+
+/* ===== リンクリスト設定開始 ===== */
+.link {
+  font-size: 30px; /* リンクリストのフォントサイズ */
+  color: black; /* リンクリストの文字色 */
+  text-align: center; /* リンクテキストの中央寄せ */
+}
+/* ===== リンクリスト設定終了 ===== */
+
+/* ===== リンク設定開始 ===== */
+a {
+  text-decoration: none; /* リンクの下線を消す */
+  color: inherit; /* リンクの文字色を継承 */
+}
+/* ===== リンク設定終了 ===== */
+
+/* ===== iframe設定開始 ===== */
+.iframe-wrp {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.iframe-wrp iframe {
+  width: 100%;
+  height: 450px;
+}
+/* ===== iframe設定終了 ===== */
+
+/* ===== レスポンシブ設定開始 ===== */
+/* タブレット向け */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px; /* タブレットでh1のサイズを縮小 */
+  }
+
+  h2 {
+    font-size: 24px; /* タブレットでh2のサイズを縮小 */
+  }
+
+  p {
+    font-size: 16px; /* タブレットで段落のサイズを縮小 */
+  }
+
+  .link {
+    font-size: 24px; /* タブレットでリンクのサイズを縮小 */
+  }
+
+  .iframe-wrp iframe {
+    height: 350px; /* タブレットでiframeの高さを縮小 */
+  }
+}
+
+/* スマートフォン向け */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px; /* スマホでh1のサイズをさらに縮小 */
+  }
+
+  h2 {
+    font-size: 20px; /* スマホでh2のサイズをさらに縮小 */
+  }
+
+  p {
+    font-size: 14px; /* スマホで段落のサイズをさらに縮小 */
+    padding: 0 10px; /* スマホで左右に余白を追加 */
+  }
+
+  .link {
+    font-size: 18px; /* スマホでリンクのサイズをさらに縮小 */
+  }
+
+  .iframe-wrp iframe {
+    height: 250px; /* スマホでiframeの高さをさらに縮小 */
+  }
+}
+/* ===== レスポンシブ設定終了 ===== */
