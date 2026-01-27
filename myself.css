@@ -1,6 +1,6 @@
 @charset "UTF-8"; /* 文字コード設定 */
 
-/* ===== リセットCSS ===== */
+/* ===== リセットCSS開始 ===== */
 * {
   margin: 0;
   padding: 0;
@@ -18,17 +18,16 @@ ul {
   margin: 0;
   padding: 0;
 }
+/* ===== リセットCSS終了 ===== */
+
 /* ===== 背景設定 ===== */
 html {
   background-image: url(./IMG_3981.JPG); /* 背景画像 */
   background-repeat: no-repeat; /* 繰り返しなし */
   background-position: center top; /* 画像位置 */
   background-size: cover; /* 画面サイズに合わせて表示 */
+  background-attachment: fixed; /* 背景を固定 */
 }
-
-/* これらのプロパティは html 要素に適用されているため、ページ
-全体の背景として機能します。myself.html で直接使っていなくても、
-HTMLファイルを開くと自動的にこのCSSが適用され、背景画像が表示されます。*/
 
 /* ===== 見出し設定 ===== */
 h1 {
@@ -67,6 +66,7 @@ a {
 .footer {
   color: white; /* フッターの文字色 */
   text-align: center; /* フッターのテキスト中央寄せ */
+  margin-top: 2rem;
 }
 
 /* ===== リスト設定 ===== */
@@ -113,4 +113,3 @@ li {
     font-size: 18px; /* スマホでリンクのサイズをさらに縮小 */
   }
 }
-
