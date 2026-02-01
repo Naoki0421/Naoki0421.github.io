@@ -49,5 +49,14 @@
             </ul>
         </div>
     <script src="./myself_2.js"></script> <!-- JavaScriptを読み込み -->
+
+    <!-- 画像の右クリックメニュー禁止 -->
+    <script>
+      document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') { // 画像のみを対象とする場合
+          e.preventDefault();
+        }
+      });
+    </script>
     </body>
 </html>

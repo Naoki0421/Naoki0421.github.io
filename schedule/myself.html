@@ -24,7 +24,7 @@
         <br />
         <a href="./県工_長距離ブロック月間予定表.pdf?raw=true" target="_blank">県工_中長距離ブロックメニュー</a>
         <br />
-        <a href="./県工_投てき・跳躍ブロック月間予定表.pdf?raw=true" target="_blank">投てき・跳躍ブロックメニュー</a>
+        <a href="./県工_投てき・跳躍ブロック月間予定表.pdf?raw=true" target="_blank">県工_投てき・跳躍ブロックメニュー</a>
         <br />
         
       </p>
@@ -47,5 +47,14 @@
         <li>copyright©安倍直希/宮城県工業高等学校 情報技術科</li>
       </ul>
     </div>
+
+    <!-- 画像の右クリックメニュー禁止 -->
+    <script>
+      document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') { // 画像のみを対象とする場合
+          e.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>

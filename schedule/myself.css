@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+/* ===== 画像のドラッグ&ドロップ禁止 ===== */
+img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+/* ===== 画像のドラッグ&ドロップ禁止終了 ===== */
+
 /* ===== リセットCSS開始 ===== */
 * {
   margin: 0;
