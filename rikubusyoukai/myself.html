@@ -71,7 +71,9 @@
       </p>
       <div style="text-align: center">
         <!-- 画像セクション開始 -->
-        <img src="" alt="" height="15%" width="15%" draggable="false" />
+        <div class="image-container">
+          <img src="" alt="" height="15%" width="15%" draggable="false" oncontextmenu="return false;" ondragstart="return false;" />
+        </div>
         <!-- 写真タグ：高さと横幅を設定 -->
       </div>
       <!-- 画像セクション終了 -->
@@ -92,27 +94,47 @@
       document.addEventListener('contextmenu', function(e) {
         if (e.target.tagName === 'IMG') { // 画像のみを対象とする場合
           e.preventDefault();
+          return false;
         }
       });
 
-      // iPhone での長押し保存を防止
+      // iPhone および Android での長押し保存を防止
       document.addEventListener('touchstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
+          return false;
         }
       }, { passive: false });
 
       document.addEventListener('touchmove', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
+          return false;
         }
       }, { passive: false });
 
       document.addEventListener('touchend', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
+          return false;
         }
       }, { passive: false });
+
+      // Android向け: ドラッグスタートの防止
+      document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // 画像の選択を防止
+      document.addEventListener('selectstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      });
     </script>
   </body>
 </html>
