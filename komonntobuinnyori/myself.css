@@ -2,7 +2,6 @@
 
 /* ===== 画像のドラッグ&ドロップ禁止 ===== */
 img {
-  pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
@@ -72,6 +71,13 @@ li {
 /* ===== クラス設定開始 ===== */
 .a {
   padding-left: 20px;
+}
+
+.center-image {
+  display: block;
+  margin: 30px auto;
+  max-width: 100%;
+  height: auto;
 }
 /* ===== クラス設定終了 ===== */
 

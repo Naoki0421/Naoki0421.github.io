@@ -2,7 +2,6 @@
 
 /* ===== 画像のドラッグ&ドロップ禁止 ===== */
 img {
-  pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
