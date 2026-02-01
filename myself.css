@@ -14,6 +14,9 @@ img {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  /* iPhoneでの長押し保存を防止 */
+  -webkit-touch-callout: none;
+  pointer-events: auto; /* タップイベントは許可 */
 }
 /* ===== 画像のドラッグ&ドロップ禁止終了 ===== */
 
