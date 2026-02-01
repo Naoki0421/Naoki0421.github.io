@@ -65,6 +65,7 @@ h1 {
   margin: 10px;
   cursor: pointer; /* タップ可能であることを示す */
 }
+
 .img-hover img {
   position: absolute;
   top: 0;
@@ -73,12 +74,15 @@ h1 {
   opacity: 1;
   object-fit: cover;
 }
+
 .img-hover img:last-child {
   opacity: 0;
 }
+
 .img-hover:hover img:first-child {
   opacity: 0;
 }
+
 .img-hover:hover img:last-child {
   opacity: 1;
 }
@@ -87,6 +91,7 @@ h1 {
 .img-hover.active img:first-child {
   opacity: 0;
 }
+
 .img-hover.active img:last-child {
   opacity: 1;
 }
