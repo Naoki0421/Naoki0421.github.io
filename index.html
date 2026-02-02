@@ -1,63 +1,104 @@
+<!-- ===============================================
+     宮城県工業高等学校 陸上部競技部 - トップページ
+     このファイルは陸上部のメインページです
+     =============================================== -->
 <!DOCTYPE html>
+<!-- HTML5標準の宣言文 -->
 <html lang="ja">
+  <!-- 日本語のWebページとして定義 -->
   <head>
+    <!-- ページのメタ情報とリソースを設定 -->
     <meta charset="UTF-8" />
+    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- レスポンシブデザイン対応と端末のノッチ対応 -->
     <meta name="theme-color" content="#a8daeb" />
+    <!-- ブラウザのアドレスバーの色をセット -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- iOSのSafariからホーム画面にアプリ化して追加を有効化 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- iOS用のステータスバースタイル設定 -->
     <title>宮城県工業高等学校 陸上部競技部</title>
+    <!-- ブラウザのタブに表示されるページタイトル -->
     <link rel="stylesheet" href="./myself.css" />
+    <!-- このページのスタイルを定義するCSSファイルを読み込み -->
   </head>
   <body>
-    <!-- 背景用の固定レイヤー -->
+    <!-- ページの可視コンテンツが記述される領域 -->
+    
+    <!-- 背景用の固定レイヤー（スクロール時に固定される背景画像） -->
     <div class="background-fixed"></div>
     
-    <!-- コンテンツ用のスクロールレイヤー -->
+    <!-- コンテンツ用のスクロールレイヤー（メインコンテンツがスクロール対象） -->
     <div class="content-wrapper">
+      <!-- ページ全体のコンテンツを包含するコンテナ -->
       <div class="hello">
+        <!-- メインコンテンツセクション（部活動の紹介と案内） -->
         <br>
+        <!-- 余白追加 -->
         <h1>宮城県工業高等学校</h1>
+        <!-- 学校名の大見出し -->
         <h2>陸上部競技部</h2>
+        <!-- 部活動の中見出し -->
         <div class="message-box">
+          <!-- 部のスローガンを表示するボックス -->
           <p>
             1秒でも速く1cmでも高く、遠くへ！<br />
+            <!-- 陸上部の目標や活動理念 -->
           </p>
         </div>
         <div class="link">
+          <!-- ナビゲーションメニュー（各ページへのリンク） -->
           <ul>
+            <!-- リスト形式でメニューを表示 -->
             <li><a href="index.html">トップページ</a></li>
+            <!-- このページへのリンク（現在地表示） -->
             <li><a href="./rikubusyoukai/myself.html">陸上競技部紹介</a></li>
+            <!-- 部活動の詳細情報ページへのリンク -->
             <li><a href="./photogallery/myself_2.html">フォトギャラリー</a></li>
+            <!-- 活動の写真集ページへのリンク -->
             <li><a href="./schedule/myself.html">年間スケジュール・練習予定表</a></li>
+            <!-- 年間予定と練習メニューのページへのリンク -->
             <li><a href="./komonntobuinnyori/myself.html">顧問・部員から</a></li>
+            <!-- 顧問や部員のメッセージページへのリンク -->
           </ul>
         </div>
       </div>
 
       <div class="footer">
+        <!-- ページ下部のフッター情報 -->
         <ul>
+          <!-- フッターのリスト表示 -->
           <li>copyright©安倍直希/宮城県工業高等学校 情報技術科</li>
+          <!-- 著作権表示と作成者情報 -->
         </ul>
       </div>
     </div>
 
-    <!-- iOS Safari アドレスバー対応スクリプト -->
+    <!-- iOS Safari アドレスバー対応スクリプト（モバイル対応） -->
     <script>
+      /* iOS/iPhoneのアドレスバーがスクロール時に変動する問題に対応 */
       const setDocHeight = () => {
+        /* ウィンドウの実際の高さを取得し、CSS変数に設定 */
         document.documentElement.style.setProperty('--doc-height', `${window.innerHeight}px`);
       };
 
-      // ページ読み込み時とリサイズ時に高さを再計算
+      /* ページ読み込み時とリサイズ時に高さを再計算（レスポンシブ対応） */
       window.addEventListener('resize', setDocHeight);
+      /* ウィンドウサイズが変更された時に高さを再計算 */
       window.addEventListener('orientationchange', setDocHeight);
+      /* デバイスの向きが変更された時（縦向き↔横向き）に高さを再計算 */
       setDocHeight();
+      /* 初期ロード時に高さを設定 */
     </script>
 
-    <!-- 画像の右クリックメニュー禁止 -->
+    <!-- 画像の右クリックメニュー禁止（画像保存を防止） -->
     <script>
+      /* 右クリック操作（contextmenuイベント）をキャッチ */
       document.addEventListener('contextmenu', function(e) {
-        if (e.target.tagName === 'IMG') { // 画像のみを対象とする場合
+        /* ターゲットが画像タグの場合のみ処理 */
+        if (e.target.tagName === 'IMG') {
+          /* デフォルトの右クリックメニューを表示しない */
           e.preventDefault();
           return false;
         }
