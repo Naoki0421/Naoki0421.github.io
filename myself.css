@@ -3,7 +3,7 @@
 /* ===== CSS変数の定義 ===== */
 :root {
   --doc-height: 100vh; /* JavaScriptで動的に更新 */
-  --sky-color: #b3e0f2; /* 背景画像の空の色 */
+  -- background-image: url(IMG_3981.JPG); /* 背景画像の空の色 */
   --gradient-overlay: rgba(179, 224, 242, 0.4); /* グラデーション用の色 */
 }
 
@@ -64,7 +64,7 @@ body {
   height: 100dvh;
   height: var(--doc-height);
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: center center;
