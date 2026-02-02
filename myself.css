@@ -64,7 +64,7 @@ body {
   height: 100dvh;
   height: var(--doc-height);
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: center center;
@@ -85,9 +85,9 @@ body {
   right: 0;
   height: 200px;
   background: linear-gradient(to bottom, 
-    var(--gradient-overlay) 0%, 
-    rgba(179, 224, 242, 0.5) 30%,
-    rgba(179, 224, 242, 0.2) 60%,
+    rgba(179, 224, 242, 0.2) 0%, 
+    rgba(179, 224, 242, 0.1) 30%,
+    rgba(179, 224, 242, 0.05) 60%,
     transparent 100%
   );
   z-index: 1;
@@ -103,9 +103,9 @@ body {
   right: 0;
   height: 180px;
   background: linear-gradient(to top, 
-    var(--gradient-overlay) 0%, 
-    rgba(179, 224, 242, 0.5) 30%,
-    rgba(179, 224, 242, 0.2) 60%,
+    rgba(179, 224, 242, 0.2) 0%, 
+    rgba(179, 224, 242, 0.1) 30%,
+    rgba(179, 224, 242, 0.05) 60%,
     transparent 100%
   );
   z-index: 1;
@@ -168,6 +168,10 @@ p {
   color: white;
   text-align: center;
   padding: 20px 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin: 10px auto;
+  max-width: 600px;
 }
 
 .link ul {
@@ -228,6 +232,7 @@ a:active {
   padding: 4px 0;
   word-break: keep-all;
   overflow-wrap: break-word;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* ===== リスト設定 ===== */
