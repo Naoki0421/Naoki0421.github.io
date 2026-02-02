@@ -64,7 +64,7 @@ body {
   height: 100dvh;
   height: var(--doc-height);
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     url(./IMG_3981.JPG);
   background-repeat: no-repeat;
   background-position: top center;
@@ -198,6 +198,26 @@ a:active {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* ===== メッセージボックス設定 ===== */
+.message {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 25px 20px;
+  margin: 25px auto;
+  max-width: 650px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.message p {
+  font-size: clamp(16px, 2.8vw, 18px);
+  color: #ffffff;
+  text-align: left;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 /* ===== フッター設定 ===== */
 .footer {
   color: white;
@@ -260,6 +280,17 @@ li {
   a {
     padding: 12px 15px;
   }
+
+  .message {
+    padding: 20px 15px;
+    margin: 20px 10px;
+    border-radius: 12px;
+  }
+
+  .message p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
 }
 
 /* 小さいスマートフォン向け */
@@ -316,6 +347,16 @@ li {
 
   .footer {
     padding: 15px;
+  }
+  
+  .message {
+    margin: 15px auto;
+    padding: 15px;
+  }
+
+  .message p {
+    font-size: 14px;
+    line-height: 1.6;
   }
   
   /* 横向きでグラデーション高さを調整 */
