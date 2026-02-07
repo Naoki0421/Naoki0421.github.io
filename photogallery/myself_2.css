@@ -241,6 +241,14 @@ a {
     max-width: 280px !important;
     height: auto !important;
   }
+
+  /* ムービーギャラリーのコンテナをスマートフォン対応に */
+  [style*="display: inline-block"] {
+    display: block !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 /* 小さいスマートフォン向け */
@@ -249,6 +257,14 @@ a {
     width: 95% !important;
     max-width: 250px !important;
     height: auto !important;
+  }
+
+  /* 小さい画面でもコンテナを適切に表示 */
+  [style*="display: inline-block"] {
+    display: block !important;
+    max-width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 /* ===== レスポンシブ設定終了 ===== */
