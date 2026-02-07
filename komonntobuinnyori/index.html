@@ -14,7 +14,7 @@
     <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整） -->
     <title>顧問・部員より</title>
     <!-- ブラウザタブに表示されるページタイトル -->
-    <link rel="stylesheet" href="./myself.css">
+    <link rel="stylesheet" href="./stylesheet.css">
     <!-- このページのデザインを定義するCSSファイルを読み込み -->
   </head>
   <body>
@@ -52,11 +52,9 @@
       <h1>部員より</h1>
       <h2>部長より</h2>
       <p></p>
-      <!-- 見出し１ -->
 
       <h2>副部長より</h2>
       <p></p>
-      <!-- 見出し２ -->
 
       <h2>マネージャーより</h2>
       <p></p>
@@ -65,7 +63,6 @@
         <img src="./images/coach.jpg" alt="陸上競技部みんなの写真" class="center-image" draggable="false" oncontextmenu="return false;" ondragstart="return false;">
       </div>
     </div>
-    <!-- ヘッダーセクション終了 -->
 
     <div class="footer">
       <ul>
@@ -76,15 +73,12 @@
       </ul>
     </div>
 
-    <!-- ページ全体の右クリックメニュー禁止 -->
     <script>
       document.addEventListener('contextmenu', function(e) {
-        // すべての要素で右クリックメニューを禁止
         e.preventDefault();
         return false;
       });
 
-      // iPhone および Android での長押し保存を防止
       document.addEventListener('touchstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -106,7 +100,6 @@
         }
       }, { passive: false });
 
-      // Android向け: ドラッグスタートの防止
       document.addEventListener('dragstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -114,7 +107,6 @@
         }
       });
 
-      // 画像の選択を防止
       document.addEventListener('selectstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -124,4 +116,3 @@
     </script>
   </body>
 </html>
-<!-- HTML終了 -->

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- レスポンシブ設定 -->
     <title>スケジュール</title>
-    <link rel="stylesheet" href="./myself.css" />
+    <link rel="stylesheet" href="./stylesheet.css" />
     <!-- ページのタブに表示させる名前付け -->
   </head>
   <body>
@@ -79,15 +79,14 @@
       </ul>
     </div>
 
-    <!-- ページ全体の右クリックメニュー禁止 -->
     <script>
+      // 右クリックメニュー禁止
       document.addEventListener('contextmenu', function(e) {
-        // すべての要素で右クリックメニューを禁止
         e.preventDefault();
         return false;
       });
 
-      // iPhone および Android での長押し保存を防止
+      // iPhone/Android での長押し保存を防止
       document.addEventListener('touchstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();

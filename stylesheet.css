@@ -1,102 +1,56 @@
 @charset "UTF-8";
-/* ファイルの文字エンコーディングをUTF-8に指定（日本語対応） */
 
-/* ===== グローバルCSS変数の定義（全ページで使用） ===== */
 :root {
-  /* ルート要素（HTML全体）の設定で、すべてのページで使用できる変数を定義 */
   --doc-height: 100vh;
-  /* ドキュメント（ページ）の高さをビューポート高さで定義（JavaScriptで動的に更新） */
   -- background-image: url(IMG_3981.JPG);
-  /* 背景画像の空の色（グラデーション効果用の変数） */
   --gradient-overlay: rgba(179, 224, 242, 0.4);
-  /* グラデーション用の色（透明度40%の薄い青色） */
 }
 
-/* ===== 画像のドラッグ&ドロップ禁止（著作権保護） ===== */
 img {
-  /* 全ての画像要素に対する共通設定 */
   user-select: none;
-  /* テキスト選択と同じ方法での画像選択を禁止 */
   -webkit-user-drag: none;
-  /* WebkitエンジンのブラウザでのドラッグD&D禁止 */
   -webkit-user-select: none;
-  /* Webkitブラウザでの選択を禁止 */
   -moz-user-select: none;
-  /* Firefoxでの選択を禁止 */
   -ms-user-select: none;
-  /* Internet Explorerでの選択を禁止 */
-  /* iPhoneでの長押し保存を防止 */
   -webkit-touch-callout: none;
-  pointer-events: auto; /* ただしタップイベント（クリック）は許可 */
+  pointer-events: auto;
 }
-/* ===== 画像のドラッグ&ドロップ禁止終了 ===== */
 
-/* ===== リセットCSS開始（ブラウザのデフォルト設定を統一） ===== */
 * {
-  /* すべての要素に対する設定 */
   margin: 0;
-  /* ブラウザのデフォルトマージン（余白）をリセット */
   padding: 0;
-  /* ブラウザのデフォルトパディング（内側の余白）をリセット */
   box-sizing: border-box;
-  /* ボックスサイズ計算を「内側の余白を含める」方式に変更（レイアウト制御簡易化） */
 }
 
 ul {
-  /* リスト要素の設定 */
   margin: 0;
-  /* リストのマージンをリセット */
   padding: 0;
-  /* リストのパディングをリセット */
 }
-/* ===== リセットCSS終了 ===== */
 
-/* ===== 背景設定（iOS対応 + グラデーション効果） ===== */
 html {
-  /* HTML全体の設定 */
   width: 100%;
-  /* ページ幅を100%に */
   height: 100%;
-  /* ページ高さを100%に */
   overflow: hidden;
-  /* スクロールバーを非表示に（カスタムスクロール使用） */
   position: fixed;
-  /* ページ全体を固定位置に設定 */
   background-color: #ffffff;
-  /* 白色を背景色に設定 */
 }
 
 body {
-  /* ページ本体の設定 */
   width: 100%;
-  /* ページ幅を100%に */
   height: 100%;
-  /* ページ高さを100%に */
   overflow: hidden;
-  /* デフォルトスクロールバーを非表示（カスタムスクロール使用） */
   position: relative;
-  /* 相対位置指定で子要素の位置基準に */
   -webkit-text-size-adjust: 100%;
-  /* iOSでの自動テキスト拡大を無効化 */
   text-size-adjust: 100%;
-  /* テキストサイズ自動調整を100%（無効）に */
   margin: 0;
-  /* マージンをリセット */
   padding: 0;
-  /* パディングをリセット */
   background-color: transparent;
-  /* 背景色を透明にしてhtmlの背景を見える状態に */
 }
 
-/* 背景固定レイヤー（iOS対応） - dvh対応版（モバイル向け最適化） */
 .background-fixed {
-  /* 背景を固定表示するコンテナ */
   position: fixed;
-  /* スクロール時も固定位置に留まる */
   top: 0;
-  /* 上端から0の位置（ページ最上部） */
   left: 0;
-  /* 左端から0の位置（ページ最左部） */
   width: 100%;
   /* 幅をウィンドウ全幅に */
   height: 100vh;
@@ -165,7 +119,6 @@ body {
   z-index: 1;
 }
 
-/* ===== コンテンツ設定 ===== */
 .hello {
   padding-top: max(20px, env(safe-area-inset-top));
   padding-right: max(15px, env(safe-area-inset-right));
@@ -175,7 +128,6 @@ body {
   min-height: 80dvh;
 }
 
-/* ===== 見出し設定 ===== */
 h1 {
   font-size: clamp(28px, 5vw, 40px);
   color: white;
@@ -199,7 +151,7 @@ h3{
   padding: 10px;
   align-items: center;
 }
-/* ===== 段落設定 ===== */
+
 p {
   font-size: clamp(18px, 3vw, 30px);
   color: #ffff00;
@@ -209,7 +161,6 @@ p {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
-/* ===== メッセージボックス設定 ===== */
 .message-box {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -229,7 +180,6 @@ p {
   text-shadow: none;
 }
 
-/* ===== リンクリスト設定 ===== */
 .link {
   font-size: clamp(18px, 3vw, 30px);
   color: white;
@@ -453,7 +403,7 @@ li {
     line-height: 1.6;
   }
   
-  /* 横向きでグラデーション高さを調整 */
+
   .background-fixed::before {
     height: 120px;
   }
@@ -463,7 +413,6 @@ li {
   }
 }
 
-/* 高解像度ディスプレイ対応 */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .background-fixed {
     background-image: url(./IMG_3981.JPG);

@@ -1,46 +1,30 @@
-<!-- ===============================================
-     フォトギャラリーページ
-     陸上部の活動や練習の様子を写真で紹介
-     =============================================== -->
 <!DOCTYPE html>
-<!-- HTML5標準の宣言文 -->
 <html>
-  <!-- HTMLドキュメント全体を包括するタグ -->
   <head>
-    <!-- ページのメタデータとリソース設定領域 -->
     <meta charset="UTF-8">
-    <!-- テキストエンコーディング設定（UTF-8で日本語対応） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- レスポンシブデザイン対応（スマートフォンやタブレット対応） -->
     <title>フォトギャラリー</title>
-    <!-- ブラウザの タブに表示されるページ名 -->
-    <link rel="stylesheet" href="./myself_2.css">
-    <!-- このページのスタイル設定を定義するCSSファイルを読み込み -->
+    <link rel="stylesheet" href="./stylesheet.css">
   </head>
   <body>
-    <!-- 本文を書く -->
     <div class="contents-top">
       <h1>フォトギャラリー</h1>
     </div>
     <div class="marquee-container">
       <div class="marquee-inner">
         <div class="img-hover">
-          <!-- クリックで画像切替 -->
           <img src="./photo/hyoshodai.jpg" alt="表彰台" draggable="false" oncontextmenu="return false;">
           <img src="./photo/sansyou.jpg" alt="夕方の風景" draggable="false" oncontextmenu="return false;">
         </div>
         <div class="img-hover">
-          <!-- クリックで画像切替 -->
           <img src="./photo/sansyou_2.jpg" alt="星空" draggable="false" oncontextmenu="return false;">
           <img src="./photo/Rainy-day-night-glass-water-drops-light-circles_3840x2160.jpg" alt="雨の夜" draggable="false" oncontextmenu="return false;">
         </div>
         <div class="img-hover">
-          <!-- クリックで画像切替 -->
           <img src="./photo/colorful-umbrellas-4k.jpg" alt="カラフルな傘" draggable="false" oncontextmenu="return false;">
           <img src="./photo/4k-hd-1738402.jpg" alt="夜景" draggable="false" oncontextmenu="return false;">
         </div>
         <div class="img-hover">
-          <!-- クリックで画像切替 -->
           <img src="./photo/guramarasusukai4k-kabegami-2736x1824_41.jpg" alt="青空" draggable="false" oncontextmenu="return false;">
           <img src="./photo/pexels-3801463.jpg" alt="花" draggable="false" oncontextmenu="return false;">
         </div>
@@ -90,12 +74,9 @@
       </ul>
     </div>
     <script src="./myself_2.js"></script>
-    <!-- JavaScriptを読み込み -->
 
-    <!-- ページ全体の右クリックメニュー禁止 -->
     <script>
       document.addEventListener('contextmenu', function(e) {
-        // すべての要素で右クリックメニューを禁止
         e.preventDefault();
         return false;
       });

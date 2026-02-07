@@ -1,30 +1,25 @@
-@charset "UTF-8"; /* 文字コード設定 */
+@charset "UTF-8";
 
-/* ===== 画像と動画のドラッグ&ドロップ禁止 ===== */
 img, video {
   user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  /* iPhoneでの長押し保存を防止 */
   -webkit-touch-callout: none;
-  /* Android向けの追加設定 */
   -webkit-tap-highlight-color: transparent;
 }
 
 img {
   touch-action: none;
-  pointer-events: none; /* ポインターイベントを無効化 */
+  pointer-events: none;
 }
 
-/* 画像コンテナの保護設定 */
 .image-container {
   position: relative;
   display: inline-block;
 }
 
-/* 画像の上に透明な保護レイヤー */
 .image-container::before {
   content: '';
   position: absolute;
@@ -36,9 +31,7 @@ img {
   z-index: 10;
   pointer-events: auto;
 }
-/* ===== 画像と動画のドラッグ&ドロップ禁止終了 ===== */
 
-/* ===== リセットCSS開始 ===== */
 * {
   margin: 0;
   padding: 0;
@@ -57,9 +50,7 @@ ul {
   margin: 0;
   padding: 0;
 }
-/* ===== リセットCSS終了 ===== */
 
-/* ===== 基本スタイル開始 ===== */
 body {
   padding: 1rem;
   overflow-x: hidden;
@@ -68,49 +59,44 @@ img {
   display: block;
 }
 h1 {
-  margin-top: 1.5rem; /* 上部の余白を縮小 */
+  margin-top: 1.5rem;
   text-align: center;
-  font-size: 32px; /* フォントサイズを小さくする */
+  font-size: 32px;
   color: blue;
 }
 .marquee-container {
-  text-align: center; /* 画像を中央揃え */
-  margin: 1rem 0; /* 上下の余白を縮小 */
+  text-align: center;
+  margin: 1rem 0;
 }
 .marquee-inner {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px; /* 画像間の間隔を狭くする */
+  gap: 15px;
 }
 
-/* ムービーギャラリー用コンテナ */
 [style*="text-align: center"] video {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 480px; /* PC時の最大幅を制限 */
+  max-width: 480px;
   width: 100%;
   height: auto;
 }
 
-/* ムービーギャラリーのコンテナ */
 [style*="display: inline-block"] {
   max-width: 480px;
   margin: 20px auto !important;
 }
-/* ===== 基本スタイル終了 ===== */
 
-/* ===== ホバー時の画像切替開始 ===== */
 .img-hover {
   position: relative;
   display: inline-block;
-  width: 100%; /* 親要素に合わせる */
-  max-width: 500px; /* PC時の最大幅を大きくする */
+  width: 100%;
+  max-width: 500px;
   margin: 10px auto;
-  cursor: pointer; /* タップ可能であることを示す */
-  /* 最初の画像を誋気に表示して高さを設定 */
-  aspect-ratio: 3 / 2; /* 16:9维 */
+  cursor: pointer;
+  aspect-ratio: 3 / 2;
 }
 
 .img-hover img {
@@ -137,18 +123,6 @@ h1 {
   opacity: 0;
 }
 
-/* ホバー機能は無効化 */
-/*
-.img-hover:hover img:first-child {
-  opacity: 0;
-}
-
-.img-hover:hover img:last-child {
-  opacity: 1;
-}
-*/
-
-/* タップで切り替えた時のクラス */
 .img-hover.active img:first-child {
   opacity: 0;
 }
@@ -157,9 +131,7 @@ h1 {
 .img-hover.active video {
   opacity: 1;
 }
-/* ===== ホバー時の画像切替終了 ===== */
 
-/* ===== フッター設定開始 ===== */
 .footer {
   color: black;
   text-align: center;
@@ -182,35 +154,31 @@ h1 {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
-/* ===== フッター設定終了 ===== */
-/* ===== リスト設定 ===== */
-li {
-  list-style: none; /* リストマーカーを消す */
-}
-/* ===== リンク設定開始 ===== */
-a {
-  text-decoration: none; /* リンクの下線を消す */
-  color: inherit; /* リンクの文字色を継承 */
-}
-/* ===== リンク設定終了 ===== */
 
-/* ===== レスポンシブ設定開始 ===== */
-/* タブレット向け */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (max-width: 768px) {
   h1 {
-    font-size: 40px; /* タブレットでh1のサイズを調整 */
+    font-size: 40px;
   }
 
   .marquee-inner {
-    flex-wrap: wrap; /* 画像を折り返す */
-    justify-content: center; /* 中央揃え */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
   }
 
   .img-hover {
-    width: 100%; /* タブレットでも親要素に合わせる */
-    max-width: 480px; /* タブレットでの最大幅を大きくする */
-    height: auto; /* 高さは自動、アスペクト比を保持 */
+    width: 100%;
+    max-width: 480px;
+    height: auto;
     margin: 10px auto;
   }
 
@@ -233,33 +201,32 @@ a {
 /* スマートフォン向け */
 @media (max-width: 480px) {
   body {
-    padding: 0.5rem; /* スマホでパディングを縮小 */
+    padding: 0.5rem;
   }
 
   h1 {
-    font-size: 32px; /* スマホでh1のサイズをさらに縮小 */
+    font-size: 32px;
     margin-top: 1.5rem;
   }
 
   .marquee-inner {
-    flex-direction: column; /* 画像を縦並びに */
-    align-items: center; /* 中央揃え */
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
   }
 
   .img-hover {
-    width: 100%; /* スマホで画像コンテナの幅を100%に */
+    width: 100%;
     max-width: none;
-    height: auto; /* 高さは自動計算でアスペクト比を保持 */
+    height: auto;
     margin: 10px auto;
   }
 
   .img-hover img {
-    position: absolute; /* 画像を重ねて表示 */
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* HTMLの固定サイズ属性を無視 */
     max-width: 100% !important;
     max-height: 100% !important;
   }
@@ -273,7 +240,6 @@ a {
     margin-right: auto !important;
   }
 
-  /* ムービーギャラリーのコンテナをスマホ対応に */
   [style*="display: inline-block"] {
     display: block !important;
     width: 100% !important;
@@ -282,7 +248,7 @@ a {
     padding: 0 !important;
   }
 
-  /* テキストセンター寄せのdiv内の動画をセンター寄せ */
+
   [style*="text-align: center"] > div > video {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -290,10 +256,9 @@ a {
   }
 }
 
-/* 小さいスマートフォン向け */
 @media (max-width: 375px) {
   .img-hover {
-    width: 100%; /* 小さいスマホでも画像をフル幅に */
+    width: 100%;
     max-width: none;
     height: auto;
     margin: 10px auto;
@@ -316,7 +281,6 @@ a {
     margin-right: auto !important;
   }
 
-  /* 小さい画面でもコンテナを適切に表示 */
   [style*="display: inline-block"] {
     display: block !important;
     width: 100% !important;
@@ -332,4 +296,3 @@ a {
     display: block !important;
   }
 }
-/* ===== レスポンシブ設定終了 ===== */

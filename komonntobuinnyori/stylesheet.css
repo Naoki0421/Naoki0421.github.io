@@ -1,27 +1,22 @@
 @charset "UTF-8";
 
-/* ===== 画像のドラッグ&ドロップ禁止 ===== */
 img {
   user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  /* iPhoneでの長押し保存を防止 */
   -webkit-touch-callout: none;
-  /* Android向けの追加設定 */
   -webkit-tap-highlight-color: transparent;
   touch-action: none;
-  pointer-events: none; /* ポインターイベントを無効化 */
+  pointer-events: none;
 }
 
-/* 画像コンテナの保護設定 */
 .image-container {
   position: relative;
   display: inline-block;
 }
 
-/* 画像の上に透明な保護レイヤー */
 .image-container::before {
   content: '';
   position: absolute;
@@ -33,9 +28,7 @@ img {
   z-index: 10;
   pointer-events: auto;
 }
-/* ===== 画像のドラッグ&ドロップ禁止終了 ===== */
 
-/* ===== リセットCSS開始 ===== */
 * {
   margin: 0;
   padding: 0;
@@ -55,15 +48,12 @@ ul {
   margin: 0;
   padding: 0;
 }
-/* ===== リセットCSS終了 ===== */
 
-/* ===== スムーズスクロール ===== */
 html {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
 
-/* ===== 見出し設定開始 ===== */
 h1 {
   font-size: 40px;
   color: blue;
@@ -78,23 +68,17 @@ h2 {
   text-align: center;
   margin: 15px 0;
 }
-/* ===== 見出し設定終了 ===== */
 
-/* ===== 段落設定開始 ===== */
 p {
   color: black;
   text-align: center;
   line-height: 1.6;
 }
-/* ===== 段落設定終了 ===== */
 
-/* ===== リスト設定開始 ===== */
 li {
   list-style: none;
 }
-/* ===== リスト設定終了 ===== */
 
-/* ===== クラス設定開始 ===== */
 .a {
   padding-left: 20px;
 }
