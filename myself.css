@@ -285,6 +285,7 @@ a:active {
   line-height: 2;
   letter-spacing: 0.5px;
   font-weight: 500;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 /* ===== フッター設定 ===== */
@@ -357,13 +358,18 @@ li {
   }
 
   .message p {
-    font-size: medium;
+    font-size: small;
     line-height: 1.8;
     color: #ffff00;
     padding: 5px 5px;
     margin: 0;
     text-align: center;
   }
+/*
+  p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.9);
+  }
+*/
 }
 
 /* 小さいスマートフォン向け */
