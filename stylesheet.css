@@ -281,6 +281,19 @@ li {
 /* ===== レスポンシブ設定 ===== */
 
 /* タブレット向け */
+/* PC向け（768px以上） */
+@media (min-width: 769px) {
+  .message-box {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .message-box h3 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* タブレット向け（768px以下） */
 @media (max-width: 768px) {
   .hello {
     padding-top: max(15px, env(safe-area-inset-top));
@@ -288,6 +301,15 @@ li {
 
   .link ul {
     gap: 12px;
+  }
+
+  .message-box {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .message-box h3 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -308,6 +330,16 @@ li {
 
   a {
     padding: 12px 15px;
+  }
+
+  .message-box {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .message-box h3 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
   }
 
   .message {
@@ -350,6 +382,15 @@ li {
 
   a {
     padding: 10px 12px;
+  }
+
+  .message-box {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .message-box h3 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -403,7 +444,15 @@ li {
     font-size: 14px;
     line-height: 1.6;
   }
-  
+
+  .message-box {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .message-box h3 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
 
   .background-fixed::before {
     height: 120px;
