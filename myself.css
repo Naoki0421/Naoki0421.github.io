@@ -357,7 +357,7 @@ li {
   }
 
   .message p {
-    font-size: 12px;
+    font-size: medium;
     line-height: 1.8;
     color: #ffff00;
     padding: 5px 5px;
