@@ -100,21 +100,21 @@
 
       // iPhone および Android での長押しメニューを防止
       document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
+        if (e.target.tagName === 'IMG') {
           e.preventDefault();
           return false;
         }
       }, { passive: false });
 
       document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
+        if (e.target.tagName === 'IMG') {
           e.preventDefault();
           return false;
         }
       }, { passive: false });
 
       document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
+        if (e.target.tagName === 'IMG') {
           e.preventDefault();
           return false;
         }
