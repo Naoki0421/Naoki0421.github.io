@@ -376,7 +376,7 @@ li {
   }
 
  .message-box h3{
-  font-size: clamp(12px, 4vw, 30px);
+  font-size: clamp(14px, 4vw, 30px);
   color:#ffff00;
   text-align: center;
   padding: 10px;
