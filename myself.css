@@ -216,6 +216,7 @@ p {
   color: #ffff00;
   padding: 5px 5px;
   margin: 0;
+  text-align: center;
 }
 
 /* ===== リンクリスト設定 ===== */
@@ -355,7 +356,7 @@ li {
   }
 
   .message p {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1.8;
   }
 
