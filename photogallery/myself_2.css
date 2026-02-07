@@ -83,6 +83,13 @@ h1 {
   flex-wrap: wrap;
   gap: 20px;
 }
+
+/* ムービーギャラリー用コンテナ */
+[style*="text-align: center"] video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* ===== 基本スタイル終了 ===== */
 
 /* ===== ホバー時の画像切替開始 ===== */
@@ -203,6 +210,9 @@ a {
     width: 90% !important;
     max-width: 350px !important;
     height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
@@ -241,6 +251,8 @@ a {
     max-width: 280px !important;
     height: auto !important;
     display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* ムービーギャラリーのコンテナをスマホ対応に */
@@ -250,6 +262,7 @@ a {
     margin-left: auto !important;
     margin-right: auto !important;
     width: 100% !important;
+    text-align: center !important;
   }
 }
 
@@ -259,6 +272,9 @@ a {
     width: 95% !important;
     max-width: 250px !important;
     height: auto !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* 小さい画面でもコンテナを適切に表示 */
@@ -267,6 +283,8 @@ a {
     max-width: 95% !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    width: 100% !important;
+    text-align: center !important;
   }
 }
 /* ===== レスポンシブ設定終了 ===== */
