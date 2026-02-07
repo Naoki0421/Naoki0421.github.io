@@ -355,7 +355,7 @@ li {
     border-radius: 12px;
   }
 
-  .message p {
+  .message h2 {
     font-size: 12px;
     line-height: 1.8;
     color: #ffff00;
