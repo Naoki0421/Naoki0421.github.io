@@ -212,7 +212,8 @@ p {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.01);
 }
 
-.message-box h2 {
+.message-box p {
+  font-size: x-large;
   color: #ffff00;
   padding: 5px 5px;
   margin: 0;
@@ -355,7 +356,7 @@ li {
     border-radius: 12px;
   }
 
-  .message h2 {
+  .message p {
     font-size: 12px;
     line-height: 1.8;
     color: #ffff00;
