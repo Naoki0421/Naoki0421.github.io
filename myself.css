@@ -359,14 +359,15 @@ li {
     border-radius: 12px;
   }
 
-  .message p {
-    font-size: small;
-    line-height: 1.8;
-    color: #ffff00;
-    padding: 5px 5px;
-    margin: 0;
-    text-align: center;
-  }
+  .message-box p {
+  font-size: large;
+  color: #ffff00;
+  padding: 5px 5px;
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: none;
+}
 /*
   p {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.9);
