@@ -1,7 +1,7 @@
 @charset "UTF-8"; /* 文字コード設定 */
 
-/* ===== 画像のドラッグ&ドロップ禁止 ===== */
-img {
+/* ===== 画像と動画のドラッグ&ドロップ禁止 ===== */
+img, video {
   user-select: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
@@ -11,6 +11,9 @@ img {
   -webkit-touch-callout: none;
   /* Android向けの追加設定 */
   -webkit-tap-highlight-color: transparent;
+}
+
+img {
   touch-action: none;
   pointer-events: none; /* ポインターイベントを無効化 */
 }
@@ -33,7 +36,7 @@ img {
   z-index: 10;
   pointer-events: auto;
 }
-/* ===== 画像のドラッグ&ドロップ禁止終了 ===== */
+/* ===== 画像と動画のドラッグ&ドロップ禁止終了 ===== */
 
 /* ===== リセットCSS開始 ===== */
 * {
@@ -100,10 +103,21 @@ h1 {
   object-fit: cover;
 }
 
+.img-hover video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s;
+  opacity: 0;
+  object-fit: cover;
+}
+
 .img-hover img:last-child {
   opacity: 0;
 }
 
+/* ホバー機能は無効化 */
+/*
 .img-hover:hover img:first-child {
   opacity: 0;
 }
@@ -111,13 +125,15 @@ h1 {
 .img-hover:hover img:last-child {
   opacity: 1;
 }
+*/
 
 /* タップで切り替えた時のクラス */
 .img-hover.active img:first-child {
   opacity: 0;
 }
 
-.img-hover.active img:last-child {
+.img-hover.active img:last-child,
+.img-hover.active video {
   opacity: 1;
 }
 /* ===== ホバー時の画像切替終了 ===== */
