@@ -162,7 +162,7 @@ p {
 }
 
 .message-box {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   /* padding: 20px 15px; */
   margin: 15px auto;
@@ -327,10 +327,11 @@ li {
 
  .message-box h3{
   font-size: clamp(16px, 4vw, 30px);
-  color:#FFCC00;
+  color: #FFFFFF;
   text-align: center;
   padding: 10px;
   align-items: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 
 }
 
