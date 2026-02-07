@@ -89,35 +89,32 @@
       /* 初期ロード時に高さを設定 */
     </script>
 
-    <!-- 画像の右クリックメニュー禁止（画像保存を防止） -->
+    <!-- ページ全体の右クリックメニュー禁止 -->
     <script>
       /* 右クリック操作（contextmenuイベント）をキャッチ */
       document.addEventListener('contextmenu', function(e) {
-        /* ターゲットが画像タグの場合のみ処理 */
-        if (e.target.tagName === 'IMG') {
-          /* デフォルトの右クリックメニューを表示しない */
-          e.preventDefault();
-          return false;
-        }
+        /* すべての要素で右クリックメニューを表示しない */
+        e.preventDefault();
+        return false;
       });
 
-      // iPhone および Android での長押し保存を防止
+      // iPhone および Android での長押しメニューを防止
       document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG') {
+        if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
           e.preventDefault();
           return false;
         }
       }, { passive: false });
 
       document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG') {
+        if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
           e.preventDefault();
           return false;
         }
       }, { passive: false });
 
       document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG') {
+        if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
           e.preventDefault();
           return false;
         }

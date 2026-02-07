@@ -68,20 +68,20 @@ img {
   display: block;
 }
 h1 {
-  margin-top: 3rem;
+  margin-top: 1.5rem; /* 上部の余白を縮小 */
   text-align: center;
-  font-size: 40px;
+  font-size: 32px; /* フォントサイズを小さくする */
   color: blue;
 }
 .marquee-container {
   text-align: center; /* 画像を中央揃え */
-  margin: 2rem 0;
+  margin: 1rem 0; /* 上下の余白を縮小 */
 }
 .marquee-inner {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px; /* 画像間の間隔を狭くする */
 }
 
 /* ムービーギャラリー用コンテナ */
@@ -89,6 +89,15 @@ h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-width: 480px; /* PC時の最大幅を制限 */
+  width: 100%;
+  height: auto;
+}
+
+/* ムービーギャラリーのコンテナ */
+[style*="display: inline-block"] {
+  max-width: 480px;
+  margin: 20px auto !important;
 }
 /* ===== 基本スタイル終了 ===== */
 
@@ -96,10 +105,12 @@ h1 {
 .img-hover {
   position: relative;
   display: inline-block;
-  width: 450px; /* 画像の横幅と同じ値 */
-  height: 300px; /* 画像の高さと同じ値 */
-  margin: 10px;
+  width: 100%; /* 親要素に合わせる */
+  max-width: 500px; /* PC時の最大幅を大きくする */
+  margin: 10px auto;
   cursor: pointer; /* タップ可能であることを示す */
+  /* 最初の画像を誋気に表示して高さを設定 */
+  aspect-ratio: 3 / 2; /* 16:9维 */
 }
 
 .img-hover img {
@@ -109,6 +120,8 @@ h1 {
   transition: opacity 0.5s;
   opacity: 1;
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .img-hover video {
@@ -195,9 +208,10 @@ a {
   }
 
   .img-hover {
-    width: 350px; /* タブレットで画像コンテナのサイズを縮小 */
-    height: 233px;
-    margin: 10px;
+    width: 100%; /* タブレットでも親要素に合わせる */
+    max-width: 480px; /* タブレットでの最大幅を大きくする */
+    height: auto; /* 高さは自動、アスペクト比を保持 */
+    margin: 10px auto;
   }
 
   .img-hover img {
@@ -208,7 +222,7 @@ a {
 
   video {
     width: 90% !important;
-    max-width: 350px !important;
+    max-width: 480px !important;
     height: auto !important;
     display: block !important;
     margin-left: auto !important;
@@ -234,9 +248,10 @@ a {
   }
 
   .img-hover {
-    width: 90%; /* スマホで画像コンテナの幅を調整 */
-    max-width: 300px;
-    height: 200px; /* 固定高さでレイアウト崩れを防止 */
+    width: 100%; /* スマホで画像コンテナの幅を100%に */
+    max-width: none;
+    height: auto; /* 高さは自動計算でアスペクト比を保持 */
+    margin: 10px auto;
   }
 
   .img-hover img {
@@ -244,11 +259,14 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* HTMLの固定サイズ属性を無視 */
+    max-width: 100% !important;
+    max-height: 100% !important;
   }
 
   video {
     width: 90% !important;
-    max-width: 280px !important;
+    max-width: 360px !important;
     height: auto !important;
     display: block !important;
     margin-left: auto !important;
@@ -274,9 +292,24 @@ a {
 
 /* 小さいスマートフォン向け */
 @media (max-width: 375px) {
+  .img-hover {
+    width: 100%; /* 小さいスマホでも画像をフル幅に */
+    max-width: none;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  .img-hover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
   video {
     width: 95% !important;
-    max-width: 250px !important;
+    max-width: 300px !important;
     height: auto !important;
     display: block !important;
     margin-left: auto !important;
