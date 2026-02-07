@@ -197,7 +197,7 @@ h3{
   color:#ffff00;
   text-align: center;
   padding: 10px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
+  align-items: center;
 }
 /* ===== 段落設定 ===== */
 p {
