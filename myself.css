@@ -281,7 +281,7 @@ a:active {
 .message p {
   font-size: clamp(16px, 2.8vw, 18px);
   color: #ffff00;
-  text-align: left;
+  text-align: center;
   line-height: 2;
   letter-spacing: 0.5px;
   font-weight: 500;
