@@ -213,11 +213,13 @@ p {
 }
 
 .message-box p {
-  font-size: x-large;
+  font-size: large;
   color: #ffff00;
   padding: 5px 5px;
   margin: 0;
   text-align: center;
+  font-weight: 500;
+  text-shadow: none;
 }
 
 /* ===== リンクリスト設定 ===== */
