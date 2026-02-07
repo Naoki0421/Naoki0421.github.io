@@ -192,6 +192,13 @@ h2 {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
+h3{
+  font-size: clamp(18px, 4vw, 30px);
+  color:#ffff00;
+  text-align: center;
+  padding: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
+}
 /* ===== 段落設定 ===== */
 p {
   font-size: clamp(18px, 3vw, 30px);
@@ -213,7 +220,7 @@ p {
 }
 
 .message-box p {
-  font-size: x-large;
+  font-size: 16px;
   color: #ffff00;
   padding: 5px 5px;
   margin: 0;
@@ -367,6 +374,14 @@ li {
     margin: 0;
     text-align: center;
   }
+
+  h3{
+  font-size: clamp(12px, 4vw, 30px);
+  color:#ffff00;
+  text-align: center;
+  padding: 10px;
+
+}
 
   
 }
