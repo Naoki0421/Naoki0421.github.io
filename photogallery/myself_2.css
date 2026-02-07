@@ -258,11 +258,17 @@ a {
   /* ムービーギャラリーのコンテナをスマホ対応に */
   [style*="display: inline-block"] {
     display: block !important;
+    width: 100% !important;
     max-width: 90% !important;
+    margin: 20px auto !important;
+    padding: 0 !important;
+  }
+
+  /* テキストセンター寄せのdiv内の動画をセンター寄せ */
+  [style*="text-align: center"] > div > video {
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 100% !important;
-    text-align: center !important;
+    display: block !important;
   }
 }
 
@@ -280,11 +286,17 @@ a {
   /* 小さい画面でもコンテナを適切に表示 */
   [style*="display: inline-block"] {
     display: block !important;
+    width: 100% !important;
     max-width: 95% !important;
+    margin: 20px auto !important;
+    padding: 0 !important;
+  }
+
+  /* テキストセンター寄せのdiv内の動画をセンター寄せ */
+  [style*="text-align: center"] > div > video {
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 100% !important;
-    text-align: center !important;
+    display: block !important;
   }
 }
 /* ===== レスポンシブ設定終了 ===== */
