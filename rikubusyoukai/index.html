@@ -95,7 +95,11 @@
       </ul>
     </div>
 
+    <!-- ===============================================
+         スクリプト：画像の保護機構
+         =============================================== -->
     <script>
+      // 右クリックコンテキストメニューを防止（全要素対象）
       document.addEventListener('contextmenu', function(e) {
         // すべての要素で右クリックメニューを禁止
         e.preventDefault();
@@ -110,6 +114,7 @@
         }
       }, { passive: false });
 
+      // タッチムーブ時の長押しメニュー防止
       document.addEventListener('touchmove', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -117,6 +122,7 @@
         }
       }, { passive: false });
 
+      // タッチエンド時の処理
       document.addEventListener('touchend', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -132,7 +138,7 @@
         }
       });
 
-      // 画像の選択を防止
+      // 画像の選択を防止（ブラウザ右クリックメニューの「保存」対策）
       document.addEventListener('selectstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();

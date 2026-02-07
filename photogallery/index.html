@@ -1,81 +1,150 @@
+<!-- ===============================================
+     フォトギャラリー
+     陸上競技部の活動写真と動画を展示
+     =============================================== -->
 <!DOCTYPE html>
-<html>
+<!-- HTML5標準の宣言文 -->
+<html lang="ja">
+  <!-- HTMLドキュメント全体を包括するタグ、日本語指定 -->
   <head>
+    <!-- ページのメタ情報とリソースを定義する領域 -->
     <meta charset="UTF-8">
+    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整） -->
     <title>フォトギャラリー</title>
+    <!-- ブラウザタブに表示されるページタイトル -->
     <link rel="stylesheet" href="./stylesheet.css">
+    <!-- このページのデザインを定義するCSSファイルを読み込み -->
+  </head>
   </head>
   <body>
+    <!-- ページタイトルセクション -->
     <div class="contents-top">
+      <!-- ページの大見出し -->
       <h1>フォトギャラリー</h1>
     </div>
+    
+    <!-- 画像スクロール表示エリア -->
     <div class="marquee-container">
+      <!-- スクロールするコンテナの内部 -->
       <div class="marquee-inner">
+        <!-- 画像ペア1：表彰台と夕方の風景 -->
         <div class="img-hover">
+          <!-- タップで画像切り替え対応のグループ -->
           <img src="./photo/hyoshodai.jpg" alt="表彰台" draggable="false" oncontextmenu="return false;">
           <img src="./photo/sansyou.jpg" alt="夕方の風景" draggable="false" oncontextmenu="return false;">
         </div>
+        
+        <!-- 画像ペア2：星空と雨の夜 -->
         <div class="img-hover">
+          <!-- タップで画像切り替え対応のグループ -->
           <img src="./photo/sansyou_2.jpg" alt="星空" draggable="false" oncontextmenu="return false;">
           <img src="./photo/Rainy-day-night-glass-water-drops-light-circles_3840x2160.jpg" alt="雨の夜" draggable="false" oncontextmenu="return false;">
         </div>
+        
+        <!-- 画像ペア3：カラフルな傘と夜景 -->
         <div class="img-hover">
+          <!-- タップで画像切り替え対応のグループ -->
           <img src="./photo/colorful-umbrellas-4k.jpg" alt="カラフルな傘" draggable="false" oncontextmenu="return false;">
           <img src="./photo/4k-hd-1738402.jpg" alt="夜景" draggable="false" oncontextmenu="return false;">
         </div>
+        
+        <!-- 画像ペア4：青空と花 -->
         <div class="img-hover">
+          <!-- タップで画像切り替え対応のグループ -->
           <img src="./photo/guramarasusukai4k-kabegami-2736x1824_41.jpg" alt="青空" draggable="false" oncontextmenu="return false;">
           <img src="./photo/pexels-3801463.jpg" alt="花" draggable="false" oncontextmenu="return false;">
         </div>
       </div>
     </div>
-       <div style="text-align: center; margin-top: 2rem;">
-         <h1>ムービーギャラリー</h1>
-         <h2>砲丸投げ</h2>
-         <div style="display: inline-block; margin: 20px auto;">
-           <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
-             <source src="./photo/ryousuke_hougan.mp4" type="video/mp4">
-             お使いのブラウザは動画タグに対応していません。
-           </video>
-         </div>
-          <h2>円盤投げ</h2>
-          <div style="text-align: center; margin-top: 2rem;">
-         <div style="display: inline-block; margin: 20px auto;">
-           <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
-             <source src="./photo/ryousuke_hougan_2.mp4" type="video/mp4">
-             お使いのブラウザは動画タグに対応していません。
-           </video>
-         </div>
-          <h2>やり投げ</h2>
-         <div style="text-align: center; margin-top: 2rem;">
-         <div style="display: inline-block; margin: 20px auto;">
-           <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
-             <source src="./photo/yamauchi_spear.mp4" type="video/mp4">
-             お使いのブラウザは動画タグに対応していません。
-           </video>
-         </div>
-          <h2>トラック競技</h2>
-          <div style="text-align: center; margin-top: 2rem;">
-         <div style="display: inline-block; margin: 20px auto;">
-           <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
-             <source src="./photo/track.mp4" type="video/mp4">
-             お使いのブラウザは動画タグに対応していません。
-           </video>
-         </div>
-       </div>
+    
+    <!-- 動画ギャラリーセクション -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <!-- ムービーギャラリーの大見出し -->
+      <h1>ムービーギャラリー</h1>
+      
+      <!-- 砲丸投げの動画 -->
+      <h2>砲丸投げ</h2>
+      <div style="display: inline-block; margin: 20px auto;">
+        <!-- 動画プレイヤー：砲丸投げ -->
+        <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
+          <source src="./photo/ryousuke_hougan.mp4" type="video/mp4">
+          お使いのブラウザは動画タグに対応していません。
+        </video>
+      </div>
+      
+      <!-- 円盤投げの動画 -->
+      <h2>円盤投げ</h2>
+      <div style="text-align: center; margin-top: 2rem;">
+        <!-- 動画プレイヤー：円盤投げ -->
+        <div style="display: inline-block; margin: 20px auto;">
+          <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
+            <source src="./photo/ryousuke_hougan_2.mp4" type="video/mp4">
+            お使いのブラウザは動画タグに対応していません。
+          </video>
+        </div>
+      </div>
+      
+      <!-- やり投げの動画 -->
+      <h2>やり投げ</h2>
+      <div style="text-align: center; margin-top: 2rem;">
+        <!-- 動画プレイヤー：やり投げ -->
+        <div style="display: inline-block; margin: 20px auto;">
+          <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
+            <source src="./photo/yamauchi_spear.mp4" type="video/mp4">
+            お使いのブラウザは動画タグに対応していません。
+          </video>
+        </div>
+      </div>
+      
+      <!-- トラック競技の動画 -->
+      <h2>トラック競技</h2>
+      <div style="text-align: center; margin-top: 2rem;">
+        <!-- 動画プレイヤー：トラック競技 -->
+        <div style="display: inline-block; margin: 20px auto;">
+          <video muted playsinline controls controlsList="nodownload" style="border-radius: 8px; object-fit: cover;">
+            <source src="./photo/track.mp4" type="video/mp4">
+            お使いのブラウザは動画タグに対応していません。
+          </video>
+        </div>
+      </div>
     </div>
+    
+    <!-- フッター領域 -->
     <div class="footer">
+      <!-- トップページへのリンク -->
       <ul>
         <li><a href="../index.html">～トップページへ～</a></li>
       </ul>
+      <!-- コピーライト表記 -->
       <ul>
         <li>copyright©安倍直希/宮城県工業高等学校 情報技術科</li>
       </ul>
     </div>
-    <script src="./myself_2.js"></script>
 
+    <!-- ===============================================
+         スクリプト：画像タップ切り替え機能
+         クリック/タップで画像を切り替える
+         =============================================== -->
     <script>
+      // タップで画像を切り替える機能
+      const imgHovers = document.querySelectorAll('.img-hover');
+
+      imgHovers.forEach(imgHover => {
+        // クリック/タップイベント（両方のデバイスに対応）
+        imgHover.addEventListener('click', () => {
+          // activeクラスをトグル（ON/OFF切り替え）
+          imgHover.classList.toggle('active');
+        });
+      });
+    </script>
+
+    <!-- ===============================================
+         スクリプト：画像・動画の保護機構
+         =============================================== -->
+    <script>
+      // 右クリックコンテキストメニューを防止
       document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         return false;
@@ -89,6 +158,7 @@
         }
       }, { passive: false });
 
+      // タッチムーブ時の長押しメニュー防止
       document.addEventListener('touchmove', function(e) {
         if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
           e.preventDefault();
@@ -96,6 +166,7 @@
         }
       }, { passive: false });
 
+      // タッチエンド時の処理
       document.addEventListener('touchend', function(e) {
         if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
           e.preventDefault();
@@ -111,7 +182,7 @@
         }
       });
 
-      // 画像と動画の選択を防止
+      // 画像と動画の選択を防止（ブラウザ右クリックメニューの「保存」対策）
       document.addEventListener('selectstart', function(e) {
         if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
           e.preventDefault();

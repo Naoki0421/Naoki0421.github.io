@@ -1,25 +1,49 @@
+<!-- ===============================================
+     トップページ
+     宮城県工業高等学校 陸上部競技部のメインページ
+     =============================================== -->
 <!DOCTYPE html>
+<!-- HTML5標準の宣言文 -->
 <html lang="ja">
+  <!-- HTMLドキュメント全体を包括するタグ、日本語指定 -->
   <head>
+    <!-- ページのメタ情報とリソースを定義する領域 -->
     <meta charset="UTF-8" />
+    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整、ノッチ対応） -->
     <meta name="theme-color" content="#a8daeb" />
+    <!-- Chrome等のアドレスバーの色を指定 -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- iOSでホーム画面追加時のフルスクリーン対応 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- iOSのステータスバーの透明感をある程度保持 -->
     <title>宮城県工業高等学校 陸上部競技部</title>
+    <!-- ブラウザタブに表示されるページタイトル -->
     <link rel="stylesheet" href="./stylesheet.css" />
+    <!-- このページのデザインを定義するCSSファイルを読み込み -->
+  </head>
   </head>
   <body>
+    <!-- ページのバックグラウンド画像固定 -->
     <div class="background-fixed"></div>
+    <!-- メインコンテンツ領域 -->
     <div class="content-wrapper">
+      <!-- メッセージ領域（タイトル、スローガン、リンク） -->
       <div class="hello">
+        <!-- 学校名 -->
         <h1>宮城県工業高等学校</h1>
+        <!-- 部活動名 -->
         <h2>陸上部競技部</h2>
+        <!-- スローガンボックス -->
         <div class="message-box">
           <h3>1秒でも速く1cmでも高く、遠くへ！</h3>
         </div>
+        <!-- ナビゲーションリンク -->
         <div class="link">
+          <!-- ページ遷移用のリンク一覧 -->
           <ul>
+            <!-- 各ページへのリンク -->
             <li><a href="./index.html">トップページ</a></li>
             <li><a href="./rikubusyoukai/index.html">陸上競技部紹介</a></li>
             <li><a href="./photogallery/index.html">ギャラリー</a></li>
@@ -29,20 +53,32 @@
         </div>
       </div>
 
+      <!-- フッター領域 -->
       <div class="footer">
         <ul>
+          <!-- コピーライト表記 -->
           <li>copyright©安倍直希/宮城県工業高等学校 情報技術科</li>
         </ul>
       </div>
     </div>
 
+    <!-- ===============================================
+         スクリプト：ウィンドウリサイズ対応
+         =============================================== -->
     <script>
+      // ウィンドウのリサイズ時の処理（高さを100vhに動的調整）
       window.addEventListener('resize', setDocHeight);
+      // 端末の向き変更時の処理（リサイズ時と同様の高さ調整）
       window.addEventListener('orientationchange', setDocHeight);
+      // 初期表示時に高さを設定
       setDocHeight();
     </script>
 
+    <!-- ===============================================
+         スクリプト：画像・動画の保護機構
+         =============================================== -->
     <script>
+      // 右クリックコンテキストメニューを防止
       document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         return false;
@@ -56,6 +92,7 @@
         }
       }, { passive: false });
 
+      // タッチムーブ時の長押しメニュー防止
       document.addEventListener('touchmove', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -63,6 +100,7 @@
         }
       }, { passive: false });
 
+      // タッチエンド時の処理
       document.addEventListener('touchend', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
@@ -78,7 +116,7 @@
         }
       });
 
-      // 画像の選択を防止
+      // 画像の選択を防止（ブラウザ右クリックメニューの「画像を保存」対策）
       document.addEventListener('selectstart', function(e) {
         if (e.target.tagName === 'IMG') {
           e.preventDefault();
