@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- HTML5標準の宣言文 -->
+<html>
+  <!-- HTMLドキュメント全体の開始 -->
+  <head>
+    <!-- ページのメタ情報とリソースを定義する領域 -->
+    <meta charset="UTF-8" />
+    <!-- 文字エンコーディングをUTF-8に指定（日本語対応） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- レスポンシブデザイン対応（様々なデバイスに対応） -->
+    <title>陸上競技部紹介</title>
+    <!-- ブラウザのタブに表示されるページタイトル -->
+    <link rel="stylesheet" href="./myself.css" />
+    <!-- このページの見た目を定義するCSSファイルを読み込み -->
+  </head>
+  <body>
+    <!-- 本文開始 -->
+    <div class="header">
+      <!-- ヘッダーセクション開始 -->
+      <h1>陸上競技部紹介</h1>
+      <!-- 見出し１ -->
+      <h2>練習環境紹介</h2>
+      <div class="message">
+            <div style="text-align: left;">
+         <p>「環境を言い訳にしない。与えられた場所で、最高の準備を。」</p>
+        <br>
+        <p>
+          本校の練習環境は、お世辞にも「恵まれている」とは言えません。<br>
+          グラウンドが使用できるのは月曜日のみ。校内に専用のトラックもありません。<br>
+          しかし、私たちはその状況を「工夫」という武器で乗り越えてきました。
+        </p>
+        <br>
+        <p>
+          <strong>競技場練習（週2回）：</strong><br>
+          近隣の陸上競技場を活用し、タータンの感触を確かめながら質の高い実戦練習を行います。
+        </p>
+        <br>
+        <p>
+          <strong>坂道トレーニング：</strong><br>
+          学校近くの勾配を利用し、強靭な脚力と精神力を鍛え上げます。
+        </p>
+        <br>
+        <p>
+          <strong>河川敷での距離走：</strong><br>
+          正確な距離設定ができる河川敷で、スタミナとペース感覚を養います。
+        </p>
+        <br>
+        <p>
+          <strong>ウエイトトレーニング：</strong><br>
+          充実したウエイト室で、怪我をしない体と爆発的なパワーを追求します。
+        </p>
+        <br>
+        <p>
+          「ないものねだり」ではなく「あるもの工夫」。<br>
+          この精神でベストを尽くしてきた結果、私たちは東北大会上位入賞という実績を積み上げてきました。
+        </p>
+        <br>
+        <p>
+          トラックがないことは、弱点ではありません。<br>
+          むしろ、限られた環境で知恵を絞り、一歩ずつ高みへ登っていく過程こそが、本校陸上競技部の強さの源です。<br>
+          不自由を楽しみ、逆境を力に変えて、共に勝利を掴み取りましょう。
+        </p>
+      </div>
+     </div>
+      <h2>成績</h2>
+    <div class="message score-section">
+    <!-- 見出し２ -->
+      <p>
+        ・令和2年 県新人 男子110H 4位<br />
+        ・令和6年 県新人 男子三段跳 3位<br />
+        ・令和7年 県総体 男子三段跳 5位<br />
+         「上記東北新人・東北総体出場」<br />
+        ・令和7年 東北総体 男子三段跳 7位<br />
+        ・令和7年 県新人 男子円盤投 3位<br />
+         「東北新人出場」<br />
+      </p>
+      <div style="text-align: center">
+        <!-- 画像セクション開始 -->
+        <div class="image-container">
+          <img src="" alt="" height="15%" width="15%" draggable="false" oncontextmenu="return false;" ondragstart="return false;" />
+        </div>
+        <!-- 写真タグ：高さと横幅を設定 -->
+      </div>
+      <!-- 画像セクション終了 -->
+
+    </div>
+    <!-- ヘッダーセクション終了 -->
+
+    <div class="footer">
+      <ul>
+        <li><a href="../index.html">～トップページへ～</a></li>
+      </ul>
+      <ul>
+        <li>copyright©安倍直希/宮城県工業高等学校 情報技術科</li>
+      </ul>
+    </div>
+
+    <!-- 画像の右クリックメニュー禁止 -->
+    <script>
+      document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') { // 画像のみを対象とする場合
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // iPhone および Android での長押し保存を防止
+      document.addEventListener('touchstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      }, { passive: false });
+
+      document.addEventListener('touchmove', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      }, { passive: false });
+
+      document.addEventListener('touchend', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      }, { passive: false });
+
+      // Android向け: ドラッグスタートの防止
+      document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // 画像の選択を防止
+      document.addEventListener('selectstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+          return false;
+        }
+      });
+    </script>
+  </body>
+</html>
+<!-- HTML終了 -->
