@@ -162,7 +162,7 @@ p {
 }
 
 .message-box {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.55);
   border-radius: 12px;
   /* padding: 20px 15px; */
   margin: 15px auto;
@@ -284,7 +284,7 @@ li {
 /* PC向け（768px以上） */
 @media (min-width: 769px) {
   .message-box {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.55);
   }
 
   .message-box h3 {
@@ -304,7 +304,7 @@ li {
   }
 
   .message-box {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.55);
   }
 
   .message-box h3 {
@@ -333,7 +333,7 @@ li {
   }
 
   .message-box {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.55);
   }
 
   .message-box h3 {
@@ -380,12 +380,8 @@ li {
     padding: 8px 10px;
   }
 
-  a {
-    padding: 10px 12px;
-  }
-
   .message-box {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.55);
   }
 
   .message-box h3 {
@@ -446,7 +442,7 @@ li {
   }
 
   .message-box {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.55);
   }
 
   .message-box h3 {
