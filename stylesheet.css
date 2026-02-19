@@ -2,7 +2,7 @@
 
 :root {
   --doc-height: 100vh;
-  -- background-image: url(IMG_3981.JPG);
+  --background-image: url(./miyaginohara.webp);
   --gradient-overlay: rgba(179, 224, 242, 0.4);
 }
 
@@ -62,7 +62,7 @@ body {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     /* グラデーション（半透明黒色で画像を暗くする） */
-    url(./IMG_3981.JPG);
+    url(./miyaginohara.webp);
   /* 背景画像を指定 */
   background-repeat: no-repeat;
   /* 背景画像を繰り返さない */
