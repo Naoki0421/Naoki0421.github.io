@@ -458,7 +458,9 @@ li {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .background-fixed {
-    background-image: url(./IMG_3981.JPG);
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+      url(./miyaginohara.webp);
   }
 }
 
