@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-  --doc-height: 100vh;
+  --doc-height: 100dvh;
   --background-image: url(./miyaginohara.webp);
   --gradient-overlay: rgba(179, 224, 242, 0.4);
 }
@@ -30,15 +30,12 @@ ul {
 html {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  position: fixed;
   background-color: #ffffff;
 }
 
 body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
   position: relative;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
