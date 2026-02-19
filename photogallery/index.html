@@ -139,11 +139,18 @@
          スクリプト：動画の最初のフレームを表示（iOS対応）
          =============================================== -->
     <script>
-      // iOSでも最初のフレームをサムネとして表示するため、0.1秒にシーク
+      // iOS・Android両対応：最初のフレームをサムネとして表示するため0.1秒にシーク
       document.querySelectorAll('video').forEach(function(video) {
+        // loadedmetadata：メタデータ読み込み完了時（主にPC・Android）
         video.addEventListener('loadedmetadata', function() {
           video.currentTime = 0.1;
         });
+        // canplay：再生可能になった時点でもシーク（古いAndroid・低スペック端末対応）
+        video.addEventListener('canplay', function() {
+          if (video.currentTime === 0) {
+            video.currentTime = 0.1;
+          }
+        }, { once: true });
       });
     </script>
 
