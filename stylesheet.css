@@ -464,3 +464,11 @@ li {
     background-image: url(./IMG_3981.JPG);
   }
 }
+
+/* モバイルデバイス向けの背景最適化 */
+@media (max-width: 768px) {
+  .background-fixed {
+    background-attachment: scroll;
+    /* モバイルSafariではfixedが機能しないため、scrollに変更 */
+  }
+}

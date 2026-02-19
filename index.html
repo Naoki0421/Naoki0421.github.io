@@ -66,6 +66,12 @@
          スクリプト：ウィンドウリサイズ対応
          =============================================== -->
     <script>
+      // ウィンドウの高さをCSS変数に設定する関数
+      function setDocHeight() {
+        const doc = document.documentElement;
+        doc.style.setProperty('--doc-height', window.innerHeight + 'px');
+      }
+
       // ウィンドウのリサイズ時の処理（高さを100vhに動的調整）
       window.addEventListener('resize', setDocHeight);
       // 端末の向き変更時の処理（リサイズ時と同様の高さ調整）
