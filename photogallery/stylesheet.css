@@ -65,11 +65,15 @@ h1 {
   color: blue;
 }
 
-h2 {
+h3 {
   margin-top: 1.5rem;
   text-align: center;
-  font-size: 24px;
+  font-size: 16px;
   color: black;
+}
+
+.contents-top {
+  text-align: center;
 }
 
 .marquee-container {

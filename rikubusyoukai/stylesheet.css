@@ -98,7 +98,7 @@ h1 {
   padding: 10px;
 }
 
-h2 {
+h3 {
   font-size: 30px;
   color: black;
   text-align: center;
@@ -188,7 +188,7 @@ a {
     font-size: 40px;
   }
 
-  h2 {
+  h3{
     font-size: 24px;
   }
 
@@ -213,7 +213,7 @@ a {
     margin-top: 1.5rem;
   }
 
-  h2 {
+  h3 {
     font-size: 20px;
   }
 
