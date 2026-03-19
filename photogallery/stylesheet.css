@@ -87,13 +87,18 @@ h3 {
   gap: 15px;
 }
 
+video {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
 [style*="text-align: center"] video {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 480px;
-  width: 100%;
-  height: auto;
 }
 
 [style*="display: inline-block"] {
