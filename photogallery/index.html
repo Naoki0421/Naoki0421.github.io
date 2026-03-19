@@ -137,21 +137,44 @@
     </div>
 
     <!-- ===============================================
-         スクリプト：動画の最初のフレームを表示（iOS対応）
+         スクリプト：動画の最初のフレームを表示（iOS・Android対応）
          =============================================== -->
     <script>
-      // iOS・Android両対応：最初のフレームをサムネとして表示するため0.1秒にシーク
+      // iOS・Android・PC全対応：最初のフレームをサムネとして表示するため0.1秒にシーク
       document.querySelectorAll('video').forEach(function(video) {
-        // loadedmetadata：メタデータ読み込み完了時（主にPC・Android）
-        video.addEventListener('loadedmetadata', function() {
-          video.currentTime = 0.1;
-        });
-        // canplay：再生可能になった時点でもシーク（古いAndroid・低スペック端末対応）
+        // シーク関数を統一
+        function seekToStart() {
+          try {
+            video.currentTime = 0.1;
+          } catch (e) {
+            // シーク失敗時は何もしない
+          }
+        }
+
+        // iOS・Android・PC対応：メタデータ読み込み完了時
+        video.addEventListener('loadedmetadata', seekToStart);
+        
+        // Android・低スペック端末対応：メディアの最初のフレームが利用可能になった時点
+        video.addEventListener('loadeddata', seekToStart);
+        
+        // Android対応：再生可能になった時点でシーク
         video.addEventListener('canplay', function() {
           if (video.currentTime === 0) {
-            video.currentTime = 0.1;
+            seekToStart();
           }
         }, { once: true });
+
+        // フォールバック：ページ読み込み完了後にシーク試行（未対応ブラウザ対策）
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', seekToStart);
+          window.addEventListener('load', seekToStart);
+        } else {
+          // ページが既に読み込まれている場合は即座にシーク試行
+          seekToStart();
+        }
+
+        // タイムアウト対策：1秒後に再度シーク試行（ネットワーク遅延対策）
+        setTimeout(seekToStart, 1000);
       });
     </script>
 
