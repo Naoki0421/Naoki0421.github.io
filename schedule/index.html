@@ -1,149 +1,195 @@
 <!-- ===============================================
      年間スケジュール・練習予定表ページ
-     陸上競技部の年間大会予定と練習予定を掲載
+     陸上競技部の年間大会予定と、ブロック別の練習予定表
+
+     デザインは全ページ共通の ../stylesheet.css に、
+     動きは ../script.js にまとめている。
      =============================================== -->
 <!DOCTYPE html>
-<!-- HTML5標準の宣言文 -->
 <html lang="ja">
-  <!-- HTMLドキュメント全体を包括するタグ、日本語指定 -->
   <head>
-    <!-- ページのメタ情報とリソースを定義する領域 -->
     <meta charset="UTF-8" />
-    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整） -->
-    <title>スケジュール</title>
-    <!-- ブラウザタブに表示されるページタイトル -->
-    <link rel="stylesheet" href="./stylesheet.css" />
-    <!-- このページのデザインを定義するCSSファイルを読み込み -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#10324f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="宮城県工業高等学校 陸上競技部の年間大会スケジュールと、短距離・中長距離ブロックの練習予定表を掲載しています。"
+    />
+    <title>年間スケジュール｜宮城県工業高等学校 陸上競技部</title>
+    <link rel="stylesheet" href="../stylesheet.css?v=1" />
   </head>
   <body>
-    <!-- メインコンテンツ領域 -->
-    <div class="header">
-      <!-- ページタイトル -->
-      <h1>年間スケジュール</h1>
-      <!-- スケジュール内容表示エリア -->
-      <div class="message">
-        <!-- 説明テキスト -->
-        <p style="text-align: left; line-height: 1.4;">
-          <!-- 年間スケジュール説明 -->
-          こちらでは、陸上競技部の年間スケジュールを掲載しています。<br />
-          部活動の練習予定表も載せていますので、ぜひご覧ください。<br /><br />
-        </p>
-        <!-- 大会スケジュール -->
-        <p style="text-align: center;">
-          <!-- 各月の大会・イベント一覧 -->
-          <span class="month">4月<br>学連春季大会<br/>
-              仙台大学競技会<br/>
-              宮城春季</span><br/>
+    <!-- 画面上部に固定されるヘッダー。
+         このページは背面が写真ではないので、最初から白背景（is-solid）にする -->
+    <header class="site-header is-solid" id="siteHeader">
+      <div class="header-inner">
+        <a class="site-logo" href="../index.html">
+          陸上競技部
+          <span>宮城県工業高等学校</span>
+        </a>
 
-          <span class="month">5月<br>総体地区予選<br/>
-              宮城県高校総体</span><br/>
+        <!-- ハンバーガーボタン（スマホ・タブレットのみ表示） -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="globalNav"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
 
-          <span class="month">6月<br>東北大会</span><br/>
+        <!-- ナビゲーション（PCでは横並び、スマホでは開閉式） -->
+        <nav class="global-nav" id="globalNav">
+          <ul>
+            <li><a href="../index.html">トップ</a></li>
+            <li><a href="../rikubusyoukai/index.html">部紹介</a></li>
+            <li><a href="../photogallery/index.html">ギャラリー</a></li>
+            <li><a href="./index.html" aria-current="page">スケジュール</a></li>
+            <li><a href="../komonntobuinnyori/index.html">顧問・部員より</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-          <span class="month">7月<br>くりこま陸上競技大会<br/>
-              インターハイ(8月上旬にかけて)</span><br/>
+    <!-- メニューを開いた時に背後を覆う黒幕（タップで閉じる） -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
 
-          <span class="month">8月<br> 陸上競技部校内合宿<br/>
-              仙台大学競技会</span><br/>
-
-          <span class="month">9月<br> 県新人大会<br/>
-              東北新人大会</span><br/>
-
-          <span class="month">10月<br> 秋季大会</span><br/>
-
-          ~シーズンオフ~<br/>
+    <main>
+      <!-- ===== ページの見出し帯 ===== -->
+      <div class="page-head">
+        <p class="page-head-label">SCHEDULE</p>
+        <h1 class="page-head-title">年間スケジュール</h1>
+        <p class="page-head-lead">
+          4月から10月までの大会予定と、ブロックごとの練習予定表を掲載しています。
         </p>
       </div>
-      <br />
 
-      <!-- 練習予定表セクション -->
-      <h1>練習予定表</h1>
-      <div class="message">
-        <!-- 練習予定表ファイルへのリンク -->
-        <p>
-          <!-- 短距離ブロック練習予定表（PDFファイルをダウンロード） -->
-          <a href="./short_track_plan.pdf" target="_blank">県工_短距離ブロックメニュー</a>
-          <br />
-          <!-- 中長距離ブロック 練習予定表（PDFファイルをダウンロード） -->
-          <a href="./middle_distance_plan.pdf" target="_blank">県工_中長距離ブロックメニュー</a>
-          <br />
-          <!-- 投てき・跳躍ブロック 練習予定表（PDFファイルをダウンロード） -->
-          <a href="" target="_blank">県工_投てき・跳躍ブロックメニューは短距離ベース＋αで技術練習</a>
-          <br />
-        </p>
-      </div>
-      <!-- スペーサー -->
-      <p>
-        <br />
-        <br />
-        <br />
-      </p>
-    </div>
+      <!-- ===== 年間の大会予定 =====
+           大会を追加・削除する場合は <li class="schedule-item"> ごと
+           増やすだけでよい。枚数に応じて自動で段組みされる。 -->
+      <section class="section" id="events">
+        <div class="container container-wide">
+          <p class="section-label">EVENTS</p>
+          <h2 class="section-title">大会日程</h2>
 
-    <!-- フッター領域 -->
-    <div class="footer">
-      <!-- トップページへのリンク -->
-      <ul>
-        <li><a href="../index.html">～トップページへ～</a></li>
-      </ul>
-      <!-- コピーライト表記 -->
-      <ul>
-        <li>© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</li>
-      </ul>
-    </div>
+          <ul class="schedule-list">
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>4</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>学連春季大会</li>
+                <li>仙台大学競技会</li>
+                <li>宮城春季</li>
+              </ul>
+            </li>
 
-    <!-- ===============================================
-         スクリプト：画像の保護機構
-         =============================================== -->
-    <script>
-      // 右クリックコンテキストメニューを防止
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      });
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>5</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>総体地区予選</li>
+                <li>宮城県高校総体</li>
+              </ul>
+            </li>
 
-      // iPhone/Android での長押し保存を防止
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>6</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>東北大会</li>
+              </ul>
+            </li>
 
-      // タッチムーブ時の長押しメニュー防止
-      document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>7</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>くりこま陸上競技大会</li>
+                <li>インターハイ（8月上旬にかけて）</li>
+              </ul>
+            </li>
 
-      // タッチエンド時の処理
-      document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>8</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>陸上競技部校内合宿</li>
+                <li>仙台大学競技会</li>
+              </ul>
+            </li>
 
-      // Android向け: ドラッグスタートの防止
-      document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>9</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>県新人大会</li>
+                <li>東北新人大会</li>
+              </ul>
+            </li>
 
-      // 画像の選択を防止（ブラウザ右クリックメニューの「保存」対策）
-      document.addEventListener('selectstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
+            <li class="schedule-item">
+              <p class="schedule-month"><strong>10</strong><span>月</span></p>
+              <ul class="schedule-events">
+                <li>秋季大会</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p class="season-off">秋季大会を終えるとシーズンオフに入ります</p>
+        </div>
+      </section>
+
+      <!-- ===== 練習予定表 ===== -->
+      <section class="section section-alt" id="plans">
+        <div class="container">
+          <p class="section-label">PRACTICE</p>
+          <h2 class="section-title">練習予定表</h2>
+          <p class="lead lead-center">
+            ブロックごとの練習メニューです。タップするとPDFが別のタブで開きます。
+          </p>
+
+          <div class="doc-list">
+            <!-- 短距離ブロック 練習予定表（PDF） -->
+            <a class="doc-link" href="./short_track_plan.pdf" target="_blank" rel="noopener">
+              <span class="doc-link-title">県工_短距離ブロックメニュー</span>
+              <span class="doc-link-note">PDF・別タブで開きます</span>
+            </a>
+
+            <!-- 中長距離ブロック 練習予定表（PDF） -->
+            <a class="doc-link" href="./middle_distance_plan.pdf" target="_blank" rel="noopener">
+              <span class="doc-link-title">県工_中長距離ブロックメニュー</span>
+              <span class="doc-link-note">PDF・別タブで開きます</span>
+            </a>
+          </div>
+
+          <!-- 投てき・跳躍ブロックは専用のPDFが無いため、
+               リンクではなく説明として見せている。
+               PDFを用意したら、上の doc-link と同じ形に書き換えればよい -->
+          <div class="doc-note" style="margin-top: 14px">
+            <span class="doc-note-title">県工_投てき・跳躍ブロック</span>
+            <span class="doc-note-text">
+              短距離ブロックのメニューをベースに、種目ごとの技術練習を追加して取り組みます。
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-name">陸上競技部</p>
+      <p class="footer-school">宮城県工業高等学校</p>
+
+      <nav class="footer-nav">
+        <a href="../index.html">トップ</a>
+        <a href="../rikubusyoukai/index.html">部紹介</a>
+        <a href="../photogallery/index.html">ギャラリー</a>
+        <a href="./index.html">スケジュール</a>
+        <a href="../komonntobuinnyori/index.html">顧問・部員より</a>
+      </nav>
+
+      <p class="footer-copy">© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</p>
+    </footer>
+
+    <script src="../script.js?v=1"></script>
   </body>
 </html>
-    

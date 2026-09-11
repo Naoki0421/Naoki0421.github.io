@@ -1,144 +1,195 @@
 <!-- ===============================================
      顧問・部員からのメッセージページ
-     陸上競技部の顧問と部員からの熱いメッセージ
+
+     デザインは全ページ共通の ../stylesheet.css に、
+     動きは ../script.js にまとめている。
      =============================================== -->
 <!DOCTYPE html>
-<!-- HTML5標準の宣言文 -->
-<html>
-  <!-- HTMLドキュメント全体を包括するタグ -->
+<html lang="ja">
   <head>
-    <!-- ページのメタ情報とリソースを定義する領域 -->
-    <meta charset="UTF-8">
-    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整） -->
-    <title>顧問・部員より</title>
-    <!-- ブラウザタブに表示されるページタイトル -->
-    <link rel="stylesheet" href="./stylesheet.css">
-    <!-- このページのデザインを定義するCSSファイルを読み込み -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#10324f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="宮城県工業高等学校 陸上競技部の顧問、部長、副部長、マネージャーから、入部を考えている方へのメッセージです。"
+    />
+    <title>顧問・部員より｜宮城県工業高等学校 陸上競技部</title>
+    <link rel="stylesheet" href="../stylesheet.css?v=1" />
   </head>
   <body>
-    <!-- 本文開始 -->
-    <div class="header">
-      <!-- ヘッダーセクション開始 -->
-      <h1>顧問より</h1>
-      <!-- 見出し１ -->
-      <h3>「『大好き』のその先へ。勝利の追求が、君を真の強さへと導く」</h3>
-      <br>
-      <!-- 見出し２ -->
+    <!-- 画面上部に固定されるヘッダー。
+         このページは背面が写真ではないので、最初から白背景（is-solid）にする -->
+    <header class="site-header is-solid" id="siteHeader">
+      <div class="header-inner">
+        <a class="site-logo" href="../index.html">
+          陸上競技部
+          <span>宮城県工業高等学校</span>
+        </a>
 
-      <div class="message">
-        <p>「陸上が大好きだ」というその真っ直な思いを、何よりも大切にしてください。<br>
-        その純粋な情熱こそが、苦しい練習を支える唯一無二のエネルギーになるからです。<br>
-        <br>
-        しかし、ここは「陸上競技部」です。<br>
-        私たちは、あえて「勝負」という厳しい場に身を置きます。<br>
-        目指すのは、インターハイという高く険しい頂（いただき）です。<br>
-        <br>
-        1秒でも速く。1cmでも遠く、高く。<br>
-        <br>
-        その数値の更新に徹底的にこだわること。<br>
-        競い合うライバルがいるからこそ、己の限界を押し広げることができます。<br>
-        そして、昨日までの自分という壁を乗り越えた先にしか、本当の成長はありません。<br>
-        <br>
-        勝つための努力をおしまず、泥臭く、ひたむきに高みを目指す。<br>
-        その道のりは決して楽なものではありません。しかし、限界の先にある景色を仲間と共に見たとき、そこには一生忘れられない感動が待っています。<br>
-        <br>
-        本気で自分を変えたい、まだ見ぬ高みへ到達したい。<br>
-        そんな志を持つあなたを待っています。<br>
-        一緒に、新しい自分に出会いに行きましょう。</p>
+        <!-- ハンバーガーボタン（スマホ・タブレットのみ表示） -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="globalNav"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <!-- ナビゲーション（PCでは横並び、スマホでは開閉式） -->
+        <nav class="global-nav" id="globalNav">
+          <ul>
+            <li><a href="../index.html">トップ</a></li>
+            <li><a href="../rikubusyoukai/index.html">部紹介</a></li>
+            <li><a href="../photogallery/index.html">ギャラリー</a></li>
+            <li><a href="../schedule/index.html">スケジュール</a></li>
+            <li><a href="./index.html" aria-current="page">顧問・部員より</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- メニューを開いた時に背後を覆う黒幕（タップで閉じる） -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+
+    <main>
+      <!-- ===== ページの見出し帯 ===== -->
+      <div class="page-head">
+        <p class="page-head-label">MESSAGE</p>
+        <h1 class="page-head-title">顧問・部員より</h1>
+        <p class="page-head-lead">
+          入部を考えているみなさんへ、顧問と部員からのメッセージです。
+        </p>
       </div>
 
-      <h2>部長より</h2>
-      <div class="message">
-       <p>こんにちは、陸上部部長の西城祐希です。<br>
-       <br>
-       陸上部は部活の人数こそ多くはないですが、辛い時でもお互いで励ましあい、協力しながら、自分の目標に向かって日々切磋琢磨しながら技術の向上を目指しています。<br>
-       <br>
-       そして、日々の練習では、基礎的な内容から専門的な内容まで、質の高い指導を受けることができるほか、技術面にだけでなく、精神面でも成長することができ、充実した活動を行う事ができています。</p>
-      </div>
+      <!-- ===== メッセージ =====
+           人を追加する場合は <article class="person-card"> ごと
+           増やすだけでよい -->
+      <section class="section">
+        <div class="container container-narrow">
+          <!-- 顧問より -->
+          <article class="person-card">
+            <p class="person-role">顧問</p>
+            <h3>「『大好き』のその先へ。勝利の追求が、君を真の強さへと導く」</h3>
+            <div class="body-text">
+              <p>
+                「陸上が大好きだ」というその真っ直ぐな思いを、何よりも大切にしてください。その純粋な情熱こそが、苦しい練習を支える唯一無二のエネルギーになるからです。
+              </p>
+              <p>
+                しかし、ここは「陸上競技部」です。私たちは、あえて「勝負」という厳しい場に身を置きます。目指すのは、インターハイという高く険しい頂です。
+              </p>
+              <p>
+                1秒でも速く。1cmでも遠く、高く。その数値の更新に徹底的にこだわること。競い合うライバルがいるからこそ、己の限界を押し広げることができます。そして、昨日までの自分という壁を乗り越えた先にしか、本当の成長はありません。
+              </p>
+              <p>
+                勝つための努力をおしまず、泥臭く、ひたむきに高みを目指す。その道のりは決して楽なものではありません。しかし、限界の先にある景色を仲間と共に見たとき、そこには一生忘れられない感動が待っています。
+              </p>
+              <p>
+                本気で自分を変えたい、まだ見ぬ高みへ到達したい。そんな志を持つあなたを待っています。一緒に、新しい自分に出会いに行きましょう。
+              </p>
+            </div>
+          </article>
 
-      <!-- 副部長からのメッセージ -->
-      <h2>副部長より</h2>
-      <div class="message">
-       <p>陸上部は努力した分結果に結びつく、成長が目に見える競技です。<br>
-      <br>
-      部活動は同期や先輩達と励まし合い、競い合いながら自分達が持つ目標に向かって走ります。<br>
-      <br>
-      足の速さや体力に自信がない人でも自分の記録が伸びた時の達成感があり、それが陸上部の面白さだと思います。<br>
-      <br>
-      中学校から走っている人も、これから陸上部を始めたい人も大歓迎です！</p>
-      </div>
-      <!-- マネージャーからのメッセージ -->
-      <h2>マネージャーより</h2>
-      <div class="message">
-      <p>マネージャーも大活躍できる部活です！新しい仲間に会えるのを楽しみにしています！</p>
-    </div>
+          <!-- 部長より -->
+          <article class="person-card">
+            <p class="person-role">部長</p>
+            <h3>西城 祐希</h3>
+            <div class="body-text">
+              <p>
+                こんにちは、陸上部部長の西城祐希です。
+              </p>
+              <p>
+                陸上部は部活の人数こそ多くはないですが、辛い時でもお互いで励ましあい、協力しながら、自分の目標に向かって日々切磋琢磨しながら技術の向上を目指しています。
+              </p>
+              <p>
+                そして、日々の練習では、基礎的な内容から専門的な内容まで、質の高い指導を受けることができるほか、技術面にだけでなく、精神面でも成長することができ、充実した活動を行う事ができています。
+              </p>
+            </div>
+          </article>
 
-      <!-- 陸上競技部の集合写真 -->
-      <div class="image-container">
-        <img src="./kenkou_2026_soutai.jpg" alt="陸上競技部みんなの写真" class="center-image" draggable="false" oncontextmenu="return false;" ondragstart="return false;">
-      </div>
-    </div>
+          <!-- 副部長より -->
+          <article class="person-card">
+            <p class="person-role">副部長</p>
+            <h3>努力した分だけ、結果に結びつく</h3>
+            <div class="body-text">
+              <p>
+                陸上部は努力した分結果に結びつく、成長が目に見える競技です。
+              </p>
+              <p>
+                部活動は同期や先輩達と励まし合い、競い合いながら自分達が持つ目標に向かって走ります。
+              </p>
+              <p>
+                足の速さや体力に自信がない人でも自分の記録が伸びた時の達成感があり、それが陸上部の面白さだと思います。
+              </p>
+              <p>
+                中学校から走っている人も、これから陸上部を始めたい人も大歓迎です！
+              </p>
+            </div>
+          </article>
 
-    <div class="footer">
-      <ul>
-        <li><a href="../index.html">～トップページへ～</a></li>
-      </ul>
-      <ul>
-        <li>© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</li>
-      </ul>
-    </div>
+          <!-- マネージャーより -->
+          <article class="person-card">
+            <p class="person-role">マネージャー</p>
+            <h3>新しい仲間に会えるのを楽しみにしています</h3>
+            <div class="body-text">
+              <p>
+                マネージャーも大活躍できる部活です！新しい仲間に会えるのを楽しみにしています！
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-    <!-- ===============================================
-         スクリプト：画像の保護機構
-         =============================================== -->
-    <script>
-      // 右クリックコンテキストメニューを防止
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      });
+      <!-- ===== 集合写真 =====
+           img には必ず写真の実寸（ピクセル）を width / height で書くこと。
+           書かないと、読み込むまで写真の高さが 0 として扱われ、
+           ページ内リンクを押した時に移動先がずれてしまう。 -->
+      <section class="section section-alt">
+        <div class="container container-narrow">
+          <p class="section-label">MEMBERS</p>
+          <h2 class="section-title">部員一同</h2>
 
-      // iPhone および Android での長押し保存を防止
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+          <figure class="photo-item">
+            <img
+              src="./kenkou_2026_soutai.jpg"
+              width="4854"
+              height="3236"
+              alt="宮城県工業高等学校 陸上競技部の集合写真"
+              loading="lazy"
+              draggable="false"
+            />
+            <figcaption>陸上競技部 部員・顧問一同</figcaption>
+          </figure>
 
-      // タッチムーブ時の長押しメニュー防止
-      document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+          <div class="hero-actions" style="margin-top: 32px">
+            <a class="btn btn-primary" href="../rikubusyoukai/index.html">部の紹介を見る</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-      // タッチエンド時の処理
-      document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+    <footer class="site-footer">
+      <p class="footer-name">陸上競技部</p>
+      <p class="footer-school">宮城県工業高等学校</p>
 
-      // Android向け: ドラッグスタートの防止
-      document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
+      <nav class="footer-nav">
+        <a href="../index.html">トップ</a>
+        <a href="../rikubusyoukai/index.html">部紹介</a>
+        <a href="../photogallery/index.html">ギャラリー</a>
+        <a href="../schedule/index.html">スケジュール</a>
+        <a href="./index.html">顧問・部員より</a>
+      </nav>
 
-      // 画像の選択を防止（ブラウザ右クリックメニューの「保存」対策）
-      document.addEventListener('selectstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
+      <p class="footer-copy">© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</p>
+    </footer>
+
+    <script src="../script.js?v=1"></script>
   </body>
 </html>

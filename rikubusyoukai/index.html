@@ -1,151 +1,202 @@
+<!-- ===============================================
+     陸上競技部紹介ページ
+     練習環境の工夫と、これまでの大会成績を掲載
+
+     デザインは全ページ共通の ../stylesheet.css に、
+     動きは ../script.js にまとめている。
+     =============================================== -->
 <!DOCTYPE html>
-<!-- HTML5標準の宣言文 -->
-<html>
-  <!-- HTMLドキュメント全体の開始 -->
+<html lang="ja">
   <head>
-    <!-- ページのメタ情報とリソースを定義する領域 -->
     <meta charset="UTF-8" />
-    <!-- 文字エンコーディングをUTF-8に指定（日本語対応） -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- レスポンシブデザイン対応（様々なデバイスに対応） -->
-    <title>陸上競技部紹介</title>
-    <!-- ブラウザのタブに表示されるページタイトル -->
-    <link rel="stylesheet" href="./stylesheet.css" />
-    <!-- このページの見た目を定義するCSSファイルを読み込み -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#10324f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="宮城県工業高等学校 陸上競技部の練習環境と、県新人・県総体・東北大会での成績を紹介します。"
+    />
+    <title>陸上競技部紹介｜宮城県工業高等学校 陸上競技部</title>
+    <link rel="stylesheet" href="../stylesheet.css?v=1" />
   </head>
   <body>
-    <!-- 本文開始 -->
-    <div class="header">
-      <!-- ヘッダーセクション開始 -->
-      <h1>陸上競技部紹介</h1>
-      <!-- 見出し１ -->
-      <h2>練習環境紹介</h2>
-      <div class="message">
-            <div style="text-align: left;">
-         <p>「環境を言い訳にしない。与えられた場所で、最高の準備を。」</p>
-        <br>
-        <p>
-          本校の練習環境は、お世辞にも「恵まれている」とは言えません。<br>
-          グラウンドが使用できるのは月曜日のみ。校内に専用のトラックもありません。<br>
-          しかし、私たちはその状況を「工夫」という武器で乗り越えてきました。
-        </p>
-        <br>
-        <p>
-          <strong>競技場練習（週2回）：</strong><br>
-          近隣の陸上競技場を活用し、タータンの感触を確かめながら質の高い実戦練習を行います。
-        </p>
-        <br>
-        <p>
-          <strong>坂道トレーニング：</strong><br>
-          学校近くの勾配を利用し、強靭な脚力と精神力を鍛え上げます。
-        </p>
-        <br>
-        <p>
-          <strong>河川敷での距離走：</strong><br>
-          正確な距離設定ができる河川敷で、スタミナとペース感覚を養います。
-        </p>
-        <br>
-        <p>
-          <strong>ウエイトトレーニング：</strong><br>
-          充実したウエイト室で、怪我をしない体と爆発的なパワーを追求します。
-        </p>
-        <br>
-        <p>
-          「ないものねだり」ではなく「あるもの工夫」。<br>
-          この精神でベストを尽くしてきた結果、私たちは東北大会上位入賞という実績を積み上げてきました。
-        </p>
-        <br>
-        <p>
-          トラックがないことは、弱点ではありません。<br>
-          むしろ、限られた環境で知恵を絞り、一歩ずつ高みへ登っていく過程こそが、本校陸上競技部の強さの源です。<br>
-          不自由を楽しみ、逆境を力に変えて、共に勝利を掴み取りましょう。
+    <!-- 画面上部に固定されるヘッダー。
+         このページは背面が写真ではないので、最初から白背景（is-solid）にする -->
+    <header class="site-header is-solid" id="siteHeader">
+      <div class="header-inner">
+        <a class="site-logo" href="../index.html">
+          陸上競技部
+          <span>宮城県工業高等学校</span>
+        </a>
+
+        <!-- ハンバーガーボタン（スマホ・タブレットのみ表示） -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="globalNav"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <!-- ナビゲーション（PCでは横並び、スマホでは開閉式） -->
+        <nav class="global-nav" id="globalNav">
+          <ul>
+            <li><a href="../index.html">トップ</a></li>
+            <li><a href="./index.html" aria-current="page">部紹介</a></li>
+            <li><a href="../photogallery/index.html">ギャラリー</a></li>
+            <li><a href="../schedule/index.html">スケジュール</a></li>
+            <li><a href="../komonntobuinnyori/index.html">顧問・部員より</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- メニューを開いた時に背後を覆う黒幕（タップで閉じる） -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+
+    <main>
+      <!-- ===== ページの見出し帯 ===== -->
+      <div class="page-head">
+        <p class="page-head-label">ABOUT</p>
+        <h1 class="page-head-title">陸上競技部紹介</h1>
+        <p class="page-head-lead">
+          限られた練習環境を工夫で乗り越えてきた、私たちの活動をご紹介します。
         </p>
       </div>
-     </div>
-      <h2>成績</h2>
-    <div class="message score-section">
-    <!-- 見出し２ -->
-      <p>
-        ・令和2年 県新人 男子110H 4位<br /><br />
-        ・令和6年 県新人 男子三段跳 3位<br /><br>
-        ・令和7年 県総体 男子三段跳 5位<br /><br>
-         「上記東北新人・東北総体出場」<br /><br>
-        ・令和7年 東北総体 男子三段跳 7位<br /><br>
-        ・令和7年 県新人 男子円盤投 3位<br /><br>
-         「東北新人出場」<br /><br>
-      </p>
-      <div style="text-align: center">
-        <!-- 画像セクション開始 -->
-        <div class="image-container">
-          <img src="" alt="" height="15%" width="15%" draggable="false" oncontextmenu="return false;" ondragstart="return false;" />
+
+      <!-- ===== 練習環境 ===== -->
+      <section class="section" id="environment">
+        <div class="container container-narrow">
+          <p class="section-label">ENVIRONMENT</p>
+          <h2 class="section-title">練習環境紹介</h2>
+
+          <!-- 文節ごとに span で区切り、変な位置で改行されるのを防ぐ -->
+          <p class="quote">
+            <span>「環境を言い訳にしない。</span><span>与えられた場所で、最高の準備を。」</span>
+          </p>
+
+          <div class="body-text">
+            <p>
+              本校の練習環境は、お世辞にも「恵まれている」とは言えません。グラウンドが使用できるのは月曜日のみで、校内に専用のトラックもありません。しかし、私たちはその状況を「工夫」という武器で乗り越えてきました。
+            </p>
+          </div>
+
+          <h3 class="sub-title">4つの練習の柱</h3>
+          <ul class="card-grid">
+            <li class="card">
+              <h4>競技場練習（週2回）</h4>
+              <p>近隣の陸上競技場を活用し、タータンの感触を確かめながら質の高い実戦練習を行います。</p>
+            </li>
+            <li class="card">
+              <h4>坂道トレーニング</h4>
+              <p>学校近くの勾配を利用し、強靭な脚力と精神力を鍛え上げます。</p>
+            </li>
+            <li class="card">
+              <h4>河川敷での距離走</h4>
+              <p>正確な距離設定ができる河川敷で、スタミナとペース感覚を養います。</p>
+            </li>
+            <li class="card">
+              <h4>ウエイトトレーニング</h4>
+              <p>充実したウエイト室で、怪我をしない体と爆発的なパワーを追求します。</p>
+            </li>
+          </ul>
+
+          <h3 class="sub-title">工夫が、強さの源になる</h3>
+          <div class="body-text">
+            <p>
+              「ないものねだり」ではなく「あるもの工夫」。この精神でベストを尽くしてきた結果、私たちは東北大会上位入賞という実績を積み上げてきました。
+            </p>
+            <p>
+              トラックがないことは、弱点ではありません。むしろ、限られた環境で知恵を絞り、一歩ずつ高みへ登っていく過程こそが、本校陸上競技部の強さの源です。不自由を楽しみ、逆境を力に変えて、共に勝利を掴み取りましょう。
+            </p>
+          </div>
         </div>
-        <!-- 写真タグ：高さと横幅を設定 -->
-      </div>
-      <!-- 画像セクション終了 -->
+      </section>
 
-    </div>
-    <!-- ヘッダーセクション終了 -->
+      <!-- ===== 成績 ===== -->
+      <section class="section section-alt" id="results">
+        <div class="container">
+          <p class="section-label">RESULTS</p>
+          <h2 class="section-title">成績</h2>
 
-    <div class="footer">
-      <ul>
-        <li><a href="../index.html">～トップページへ～</a></li>
-      </ul>
-      <ul>
-        <li>© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</li>
-      </ul>
-    </div>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th scope="col">年度・大会</th>
+                <th scope="col">種目</th>
+                <th scope="col">順位</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">令和7年 県新人</th>
+                <td>男子円盤投</td>
+                <td>
+                  <span class="rank">3位</span>
+                  <span class="result-extra">東北新人出場</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">令和7年 東北総体</th>
+                <td>男子三段跳</td>
+                <td><span class="rank">7位</span></td>
+              </tr>
+              <tr>
+                <th scope="row">令和7年 県総体</th>
+                <td>男子三段跳</td>
+                <td>
+                  <span class="rank">5位</span>
+                  <span class="result-extra">東北総体出場</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">令和6年 県新人</th>
+                <td>男子三段跳</td>
+                <td>
+                  <span class="rank">3位</span>
+                  <span class="result-extra">東北新人出場</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">令和2年 県新人</th>
+                <td>男子110mH</td>
+                <td><span class="rank">4位</span></td>
+              </tr>
+            </tbody>
+          </table>
 
-    <!-- ===============================================
-         スクリプト：画像の保護機構
-         =============================================== -->
-    <script>
-      // 右クリックコンテキストメニューを防止（全要素対象）
-      document.addEventListener('contextmenu', function(e) {
-        // すべての要素で右クリックメニューを禁止
-        e.preventDefault();
-        return false;
-      });
+          <p class="result-note">
+            上位入賞の様子は、ギャラリーページの写真と動画でもご覧いただけます。
+          </p>
 
-      // iPhone および Android での長押し保存を防止
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+          <div class="hero-actions" style="margin-top: 28px">
+            <a class="btn btn-primary" href="../photogallery/index.html">ギャラリーを見る</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-      // タッチムーブ時の長押しメニュー防止
-      document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+    <footer class="site-footer">
+      <p class="footer-name">陸上競技部</p>
+      <p class="footer-school">宮城県工業高等学校</p>
 
-      // タッチエンド時の処理
-      document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+      <nav class="footer-nav">
+        <a href="../index.html">トップ</a>
+        <a href="./index.html">部紹介</a>
+        <a href="../photogallery/index.html">ギャラリー</a>
+        <a href="../schedule/index.html">スケジュール</a>
+        <a href="../komonntobuinnyori/index.html">顧問・部員より</a>
+      </nav>
 
-      // Android向け: ドラッグスタートの防止
-      document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
+      <p class="footer-copy">© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</p>
+    </footer>
 
-      // 画像の選択を防止（ブラウザ右クリックメニューの「保存」対策）
-      document.addEventListener('selectstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
+    <script src="../script.js?v=1"></script>
   </body>
 </html>
-<!-- HTML終了 -->

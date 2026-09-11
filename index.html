@@ -1,134 +1,234 @@
 <!-- ===============================================
      トップページ
-     宮城県工業高等学校 陸上部競技部のメインページ
+     宮城県工業高等学校 陸上競技部のメインページ
+
+     デザインは全ページ共通の ./stylesheet.css に、
+     動きは ./script.js にまとめている。
      =============================================== -->
 <!DOCTYPE html>
-<!-- HTML5標準の宣言文 -->
 <html lang="ja">
-  <!-- HTMLドキュメント全体を包括するタグ、日本語指定 -->
   <head>
-    <!-- ページのメタ情報とリソースを定義する領域 -->
     <meta charset="UTF-8" />
-    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整、ノッチ対応） -->
-    <meta name="theme-color" content="#a8daeb" />
-    <!-- Chrome等のアドレスバーの色を指定 -->
+    <meta name="theme-color" content="#10324f" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!-- iOSでホーム画面追加時のフルスクリーン対応 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <!-- iOSのステータスバーの透明感をある程度保持 -->
-    <title>宮城県工業高等学校 陸上部競技部</title>
-    <!-- ブラウザタブに表示されるページタイトル -->
-    <link rel="stylesheet" href="./stylesheet.css" />
-    <!-- このページのデザインを定義するCSSファイルを読み込み -->
-  </head>
+    <meta
+      name="description"
+      content="宮城県工業高等学校 陸上競技部の公式サイト。部の紹介、練習環境、近年の大会成績、年間スケジュール、練習予定表、活動の写真と動画を掲載しています。"
+    />
+
+    <!-- SNSやLINEで共有された時に出るカードの情報 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="宮城県工業高等学校 陸上競技部" />
+    <meta
+      property="og:description"
+      content="1秒でも速く、1cmでも高く、遠くへ。宮城県工業高等学校 陸上競技部の公式サイトです。"
+    />
+    <meta property="og:url" content="https://naoki0421.github.io/" />
+    <meta property="og:image" content="https://naoki0421.github.io/miyaginohara.webp" />
+
+    <title>宮城県工業高等学校 陸上競技部</title>
+
+    <!-- ?v= の数字を変えるとブラウザが必ず新しいCSSを読み直す（キャッシュ対策）。
+         デザインを変更しても反映されない時は、この数字を1つ増やすとよい -->
+    <link rel="stylesheet" href="./stylesheet.css?v=1" />
   </head>
   <body>
-    <!-- ページのバックグラウンド画像固定 -->
-    <div class="background-fixed"></div>
-    <!-- メインコンテンツ領域 -->
-    <div class="content-wrapper">
-      <!-- メッセージ領域（タイトル、スローガン、リンク） -->
-      <div class="hello">
-        <!-- 学校名 -->
-        <h1>宮城県工業高等学校</h1>
-        <!-- 部活動名 -->
-        <h2>陸上部競技部</h2>
-        <!-- スローガンボックス -->
-        <div class="message-box">
-          <h3>1秒でも速く1cmでも高く、遠くへ！</h3>
-        </div>
-        <!-- ナビゲーションリンク -->
-        <div class="link">
-          <!-- ページ遷移用のリンク一覧 -->
+    <!-- 画面上部に固定されるヘッダー。スマホでは三本線ボタンでメニューを開閉する -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a class="site-logo" href="./index.html">
+          陸上競技部
+          <span>宮城県工業高等学校</span>
+        </a>
+
+        <!-- ハンバーガーボタン（スマホ・タブレットのみ表示） -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="globalNav"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <!-- ナビゲーション（PCでは横並び、スマホでは開閉式） -->
+        <nav class="global-nav" id="globalNav">
           <ul>
-            <!-- 各ページへのリンク -->
-            <li><a href="./index.html">トップページ</a></li>
-            <li><a href="./rikubusyoukai/index.html">陸上競技部紹介</a></li>
+            <li><a href="./index.html" aria-current="page">トップ</a></li>
+            <li><a href="./rikubusyoukai/index.html">部紹介</a></li>
             <li><a href="./photogallery/index.html">ギャラリー</a></li>
-            <li><a href="./schedule/index.html">年間スケジュール・練習予定表</a></li>
-            <li><a href="./komonntobuinnyori/index.html">顧問・部員から</a></li>
+            <li><a href="./schedule/index.html">スケジュール</a></li>
+            <li><a href="./komonntobuinnyori/index.html">顧問・部員より</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- メニューを開いた時に背後を覆う黒幕（タップで閉じる） -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+
+    <main>
+      <!-- ===== ファーストビュー ===== -->
+      <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+          <p class="hero-school">宮城県工業高等学校</p>
+          <h1 class="hero-title">陸上競技部</h1>
+          <!-- 文節ごとに span で区切り、変な位置で改行されるのを防ぐ -->
+          <p class="hero-slogan">
+            <span>1秒でも速く</span><span>1cmでも高く、遠くへ！</span>
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./rikubusyoukai/index.html">部の紹介を見る</a>
+            <a class="btn btn-ghost" href="./photogallery/index.html">ギャラリーを見る</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 部について ===== -->
+      <section class="section" id="about">
+        <div class="container container-narrow">
+          <p class="section-label">ABOUT</p>
+          <h2 class="section-title">私たちについて</h2>
+
+          <p class="quote">
+            <span>「ないものねだり」ではなく、</span><span>「あるもの工夫」。</span>
+          </p>
+
+          <div class="body-text">
+            <p>
+              本校にはグラウンドの専用使用日が週に1日しかなく、校内に陸上競技用のトラックもありません。それでも私たちは、近隣の競技場、学校近くの坂道、河川敷、ウエイト室と、使えるものを組み合わせて練習を組み立ててきました。
+            </p>
+            <p>
+              限られた環境で知恵を絞り、一歩ずつ高みへ登っていく過程そのものが、本校陸上競技部の強さの源です。その積み重ねが、東北大会上位入賞という結果につながっています。
+            </p>
+          </div>
+
+          <h3 class="sub-title">4つの練習の柱</h3>
+          <ul class="card-grid">
+            <li class="card">
+              <h4>競技場練習</h4>
+              <p>週2回、近隣の陸上競技場でタータンの感触を確かめながら実戦練習を行います。</p>
+            </li>
+            <li class="card">
+              <h4>坂道トレーニング</h4>
+              <p>学校近くの勾配を利用し、強靭な脚力と精神力を鍛え上げます。</p>
+            </li>
+            <li class="card">
+              <h4>河川敷での距離走</h4>
+              <p>正確な距離設定ができる河川敷で、スタミナとペース感覚を養います。</p>
+            </li>
+            <li class="card">
+              <h4>ウエイトトレーニング</h4>
+              <p>充実したウエイト室で、怪我をしない体と爆発的なパワーを追求します。</p>
+            </li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <!-- フッター領域 -->
-      <div class="footer">
-        <ul>
-          <!-- コピーライト表記 -->
-          <li>© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</li>
-        </ul>
-      </div>
-    </div>
+      <!-- ===== 主な成績 ===== -->
+      <section class="section section-alt" id="results">
+        <div class="container">
+          <p class="section-label">RESULTS</p>
+          <h2 class="section-title">近年の主な成績</h2>
 
-    <!-- ===============================================
-         スクリプト：ウィンドウリサイズ対応
-         =============================================== -->
-    <script>
-      // ウィンドウの高さをCSS変数に設定する関数
-      function setDocHeight() {
-        const doc = document.documentElement;
-        doc.style.setProperty('--doc-height', window.innerHeight + 'px');
-      }
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th scope="col">年度・大会</th>
+                <th scope="col">種目</th>
+                <th scope="col">順位</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">令和7年 東北総体</th>
+                <td>男子三段跳</td>
+                <td class="rank">7位</td>
+              </tr>
+              <tr>
+                <th scope="row">令和7年 県新人</th>
+                <td>男子円盤投</td>
+                <td class="rank">3位</td>
+              </tr>
+              <tr>
+                <th scope="row">令和7年 県総体</th>
+                <td>男子三段跳</td>
+                <td class="rank">5位</td>
+              </tr>
+            </tbody>
+          </table>
 
-      // ウィンドウのリサイズ時の処理（高さを100vhに動的調整）
-      window.addEventListener('resize', setDocHeight);
-      // 端末の向き変更時の処理（リサイズ時と同様の高さ調整）
-      window.addEventListener('orientationchange', setDocHeight);
-      // 初期表示時に高さを設定
-      setDocHeight();
-    </script>
+          <p class="result-note">
+            これまでの成績はすべて部紹介ページに掲載しています。
+          </p>
 
-    <!-- ===============================================
-         スクリプト：画像・動画の保護機構
-         =============================================== -->
-    <script>
-      // 右クリックコンテキストメニューを防止
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      });
+          <div class="hero-actions" style="margin-top: 28px">
+            <a class="btn btn-primary" href="./rikubusyoukai/index.html#results">成績をすべて見る</a>
+          </div>
+        </div>
+      </section>
 
-      // iPhone および Android での長押しメニューを防止
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+      <!-- ===== 各ページへの入口 ===== -->
+      <section class="section" id="contents">
+        <div class="container container-wide">
+          <p class="section-label">CONTENTS</p>
+          <h2 class="section-title">ページ一覧</h2>
 
-      // タッチムーブ時の長押しメニュー防止
-      document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+          <div class="nav-card-grid">
+            <a class="nav-card" href="./rikubusyoukai/index.html">
+              <span class="nav-card-label">ABOUT</span>
+              <span class="nav-card-title">陸上競技部紹介</span>
+              <span class="nav-card-text">練習環境の工夫と、これまでに積み上げてきた大会成績をまとめています。</span>
+              <span class="nav-card-more">詳しく見る</span>
+            </a>
 
-      // タッチエンド時の処理
-      document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
+            <a class="nav-card" href="./photogallery/index.html">
+              <span class="nav-card-label">GALLERY</span>
+              <span class="nav-card-title">ギャラリー</span>
+              <span class="nav-card-text">トラック・フィールド・投てきの、練習と大会の写真と動画を掲載しています。</span>
+              <span class="nav-card-more">詳しく見る</span>
+            </a>
 
-      // Android向け: ドラッグスタートの防止
-      document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
+            <a class="nav-card" href="./schedule/index.html">
+              <span class="nav-card-label">SCHEDULE</span>
+              <span class="nav-card-title">年間スケジュール</span>
+              <span class="nav-card-text">4月から10月までの大会予定と、ブロックごとの練習予定表を公開しています。</span>
+              <span class="nav-card-more">詳しく見る</span>
+            </a>
 
-      // 画像の選択を防止（ブラウザ右クリックメニューの「画像を保存」対策）
-      document.addEventListener('selectstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
+            <a class="nav-card" href="./komonntobuinnyori/index.html">
+              <span class="nav-card-label">MESSAGE</span>
+              <span class="nav-card-title">顧問・部員より</span>
+              <span class="nav-card-text">顧問、部長、副部長、マネージャーから、入部を考えている方へのメッセージです。</span>
+              <span class="nav-card-more">詳しく見る</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-name">陸上競技部</p>
+      <p class="footer-school">宮城県工業高等学校</p>
+
+      <nav class="footer-nav">
+        <a href="./index.html">トップ</a>
+        <a href="./rikubusyoukai/index.html">部紹介</a>
+        <a href="./photogallery/index.html">ギャラリー</a>
+        <a href="./schedule/index.html">スケジュール</a>
+        <a href="./komonntobuinnyori/index.html">顧問・部員より</a>
+      </nav>
+
+      <p class="footer-copy">© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</p>
+    </footer>
+
+    <script src="./script.js?v=1"></script>
   </body>
 </html>

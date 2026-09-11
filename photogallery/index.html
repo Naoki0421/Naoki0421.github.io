@@ -1,273 +1,244 @@
 <!-- ===============================================
      フォトギャラリー
-     陸上競技部の活動写真と動画を展示
+     陸上競技部の活動写真と動画を掲載
+
+     デザインは全ページ共通の ../stylesheet.css に、
+     動きは ../script.js にまとめている。
+
+     写真・動画を追加する場合は <figure> ごと増やすだけでよい。
+     枚数に応じて自動で段組みされる。
+
+     ※ img と video には必ず実寸（ピクセル）を width / height で書くこと。
+       書かないと、読み込むまで高さが 0 として扱われ、スクロール位置が
+       途中でずれてしまう。
      =============================================== -->
 <!DOCTYPE html>
-<!-- HTML5標準の宣言文 -->
 <html lang="ja">
-  <!-- HTMLドキュメント全体を包括するタグ、日本語指定 -->
   <head>
-    <!-- ページのメタ情報とリソースを定義する領域 -->
-    <meta charset="UTF-8">
-    <!-- テキストエンコーディングをUTF-8に指定（日本語対応） -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- レスポンシブデザイン対応（各デバイスの画面サイズに自動調整） -->
-    <title>フォトギャラリー</title>
-    <!-- ブラウザタブに表示されるページタイトル -->
-    <link rel="stylesheet" href="./stylesheet.css">
-    <!-- このページのデザインを定義するCSSファイルを読み込み -->
-  </head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#10324f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="宮城県工業高等学校 陸上競技部の活動写真と動画。トラック、フィールド、投てきの練習と大会の様子を掲載しています。"
+    />
+    <title>ギャラリー｜宮城県工業高等学校 陸上競技部</title>
+    <link rel="stylesheet" href="../stylesheet.css?v=1" />
   </head>
   <body>
-    <!-- ページタイトルセクション -->
-    <div class="contents-top">
-      <!-- ページの大見出し -->
-      <h1>フォトギャラリー</h1>
-      <h3>photoをタップしてみてください</h3>
-    </div>
-    
-    <!-- 画像スクロール表示エリア -->
-    <div class="marquee-container">
-      <!-- スクロールするコンテナの内部 -->
-      <div class="marquee-inner">
-        <!-- 画像ペア1：表彰台と三障1 -->
-        <div class="img-hover">
-          <!-- タップで画像切り替え対応のグループ -->
-          <img src="./photo/hyoshodai.jpg" alt="表彰台" draggable="false" oncontextmenu="return false;">
-          <img src="./photo/sansyou.jpg" alt="三障1" draggable="false" oncontextmenu="return false;">
-        </div>
-        
-        <!-- 画像ペア2：三障1とウィンドスプリント -->
-        <div class="img-hover">
-          <!-- タップで画像切り替え対応のグループ -->
-          <img src="./photo/Ayumu_3000sc conv 1.jpeg" alt="三障2" draggable="false" oncontextmenu="return false;">
-          <img src="./photo/windsprint.jpg" alt="ウィンドスプリント" draggable="false" oncontextmenu="return false;">
-        </div>
-        
-        <!-- 画像ペア3：トラック1とフィールド1 -->
-        <div class="img-hover">
-          <!-- タップで画像切り替え対応のグループ -->
-          <img src="./photo/track1.png" alt="トラック1" draggable="false" oncontextmenu="return false;">
-          <img src="./photo/field1.png" alt="フィールド1" draggable="false" oncontextmenu="return false;">
-        </div>
-        
-        <!-- フィールド三段と幅跳び-->
-        <div class="img-hover">
-          <!-- タップで画像切り替え対応のグループ -->
-          <img src="./photo/フィールド三段.png" alt="フィールド三段" draggable="false" oncontextmenu="return false;">
-          <img src="./photo/フィールド.png" alt="幅跳び" draggable="false" oncontextmenu="return false;">
-        </div>
+    <!-- 画面上部に固定されるヘッダー。
+         このページは背面が写真ではないので、最初から白背景（is-solid）にする -->
+    <header class="site-header is-solid" id="siteHeader">
+      <div class="header-inner">
+        <a class="site-logo" href="../index.html">
+          陸上競技部
+          <span>宮城県工業高等学校</span>
+        </a>
+
+        <!-- ハンバーガーボタン（スマホ・タブレットのみ表示） -->
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          type="button"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="globalNav"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <!-- ナビゲーション（PCでは横並び、スマホでは開閉式） -->
+        <nav class="global-nav" id="globalNav">
+          <ul>
+            <li><a href="../index.html">トップ</a></li>
+            <li><a href="../rikubusyoukai/index.html">部紹介</a></li>
+            <li><a href="./index.html" aria-current="page">ギャラリー</a></li>
+            <li><a href="../schedule/index.html">スケジュール</a></li>
+            <li><a href="../komonntobuinnyori/index.html">顧問・部員より</a></li>
+          </ul>
+        </nav>
       </div>
-    </div>
-    
-    <!-- 動画ギャラリーセクション -->
-    <div style="text-align: center; margin-top: 2rem;">
-      <!-- ムービーギャラリーの大見出し -->
-      <h1>ムービーギャラリー</h1><br>
-      
-       <!-- トラック競技の動画 -->
-      <h2>トラック競技１</h2>
-      <div style="text-align: center; margin-top: 2rem;">
-        <!-- 動画プレイヤー：トラック競技 -->
-        <div style="display: inline-block; margin: 20px auto;">
-          <video muted playsinline controls controlsList="nodownload" preload="metadata" style="border-radius: 8px; object-fit: cover;">
-            <source src="./photo/trackrelay.mp4" type="video/mp4">
-            お使いのブラウザは動画タグに対応していません。
-          </video>
-        </div>
+    </header>
+
+    <!-- メニューを開いた時に背後を覆う黒幕（タップで閉じる） -->
+    <div class="nav-overlay" id="navOverlay" hidden></div>
+
+    <main>
+      <!-- ===== ページの見出し帯 ===== -->
+      <div class="page-head">
+        <p class="page-head-label">GALLERY</p>
+        <h1 class="page-head-title">ギャラリー</h1>
+        <p class="page-head-lead">
+          練習と大会での、部員たちの姿を集めました。
+        </p>
       </div>
 
-      <!-- 砲丸投げの動画 -->
-      <h2>砲丸投げ</h2>
-      <div style="display: inline-block; margin: 20px auto;">
-        <!-- 動画プレイヤー：砲丸投げ -->
-        <video muted playsinline controls controlsList="nodownload" preload="metadata" style="border-radius: 8px; object-fit: cover;">
-          <source src="./photo/ryousuke_hougan.mp4" type="video/mp4">
-          お使いのブラウザは動画タグに対応していません。
-        </video>
-      </div>
-      
-      <!-- 円盤投げの動画 -->
-      <h2>円盤投げ</h2>
-      <div style="text-align: center; margin-top: 2rem;">
-        <!-- 動画プレイヤー：円盤投げ -->
-        <div style="display: inline-block; margin: 20px auto;">
-          <video muted playsinline controls controlsList="nodownload" preload="metadata" style="border-radius: 8px; object-fit: cover;">
-            <source src="./photo/ryousuke_hougan_2.mp4" type="video/mp4">
-            お使いのブラウザは動画タグに対応していません。
-          </video>
+      <!-- ===== 写真 ===== -->
+      <section class="section" id="photos">
+        <div class="container container-wide">
+          <p class="section-label">PHOTO</p>
+          <h2 class="section-title">フォトギャラリー</h2>
+
+          <div class="photo-grid">
+            <figure class="photo-item">
+              <img src="./photo/hyoshodai.jpg" width="1477" height="1108" alt="大会の表彰台に立つ部員" loading="lazy" draggable="false" />
+              <figcaption>表彰台</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/track1.png" width="3477" height="1920" alt="トラック競技の走行中の様子" loading="lazy" draggable="false" />
+              <figcaption>トラック競技</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/sansyou.jpg" width="750" height="595" alt="3000m障害の水濠を越える部員" loading="lazy" draggable="false" />
+              <figcaption>3000m障害</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/Ayumu_3000sc%20conv%201.jpeg" width="2222" height="1480" alt="3000m障害を走る部員" loading="lazy" draggable="false" />
+              <figcaption>3000m障害</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/windsprint.jpg" width="3441" height="2778" alt="ウィンドスプリントで流しをかける部員" loading="lazy" draggable="false" />
+              <figcaption>ウィンドスプリント</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/field1.png" width="2532" height="1170" alt="フィールド競技に臨む部員" loading="lazy" draggable="false" />
+              <figcaption>フィールド競技</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/フィールド三段.png" width="1333" height="588" alt="三段跳の踏み切りの様子" loading="lazy" draggable="false" />
+              <figcaption>三段跳</figcaption>
+            </figure>
+
+            <figure class="photo-item">
+              <img src="./photo/フィールド.png" width="1429" height="556" alt="幅跳びの跳躍の様子" loading="lazy" draggable="false" />
+              <figcaption>幅跳び</figcaption>
+            </figure>
+          </div>
         </div>
-      </div>
-      
-      <!-- やり投げの動画 -->
-      <h2>やり投げ</h2>
-      <div style="text-align: center; margin-top: 2rem;">
-        <!-- 動画プレイヤー：やり投げ -->
-        <div style="display: inline-block; margin: 20px auto;">
-          <video muted playsinline controls controlsList="nodownload" preload="metadata" style="border-radius: 8px; object-fit: cover;">
-            <source src="./photo/yamauchi_spear.mp4" type="video/mp4">
-            お使いのブラウザは動画タグに対応していません。
-          </video>
+      </section>
+
+      <!-- ===== 動画 =====
+           preload="metadata" にして、動画の中身は再生されるまで
+           読み込まないようにしている（通信量の節約）。
+           最初の1コマは ../script.js がサムネイルとして表示する。 -->
+      <section class="section section-alt" id="movies">
+        <div class="container container-wide">
+          <p class="section-label">MOVIE</p>
+          <h2 class="section-title">ムービーギャラリー</h2>
+          <p class="lead lead-center">
+            再生ボタンを押すと動画が始まります。
+          </p>
+
+          <div class="movie-grid">
+            <figure class="movie-item">
+              <video
+                width="1280"
+                height="720"
+                muted
+                playsinline
+                controls
+                controlsList="nodownload"
+                preload="metadata"
+              >
+                <source src="./photo/trackrelay.mp4" type="video/mp4" />
+                お使いのブラウザは動画タグに対応していません。
+              </video>
+              <figcaption>トラック競技</figcaption>
+            </figure>
+
+            <figure class="movie-item">
+              <video
+                width="1280"
+                height="720"
+                muted
+                playsinline
+                controls
+                controlsList="nodownload"
+                preload="metadata"
+              >
+                <source src="./photo/ryousuke_hougan.mp4" type="video/mp4" />
+                お使いのブラウザは動画タグに対応していません。
+              </video>
+              <figcaption>砲丸投げ</figcaption>
+            </figure>
+
+            <figure class="movie-item">
+              <video
+                width="1280"
+                height="720"
+                muted
+                playsinline
+                controls
+                controlsList="nodownload"
+                preload="metadata"
+              >
+                <source src="./photo/ryousuke_hougan_2.mp4" type="video/mp4" />
+                お使いのブラウザは動画タグに対応していません。
+              </video>
+              <figcaption>円盤投げ</figcaption>
+            </figure>
+
+            <figure class="movie-item">
+              <video
+                width="1280"
+                height="720"
+                muted
+                playsinline
+                controls
+                controlsList="nodownload"
+                preload="metadata"
+              >
+                <source src="./photo/yamauchi_spear.mp4" type="video/mp4" />
+                お使いのブラウザは動画タグに対応していません。
+              </video>
+              <figcaption>やり投げ</figcaption>
+            </figure>
+
+            <figure class="movie-item">
+              <video
+                width="1920"
+                height="1080"
+                muted
+                playsinline
+                controls
+                controlsList="nodownload"
+                preload="metadata"
+              >
+                <source src="./photo/三段跳-min.mp4" type="video/mp4" />
+                お使いのブラウザは動画タグに対応していません。
+              </video>
+              <figcaption>三段跳</figcaption>
+            </figure>
+          </div>
         </div>
-      </div>
-      
-    <!-- フィールド競技の動画 -->
-      <h2>フィールド三段競技</h2>
-      <div style="text-align: center; margin-top: 2rem;">
-        <!-- 動画プレイヤー：フィールド三段競技 -->
-        <div style="display: inline-block; margin: 20px auto;">
-          <video muted playsinline controls controlsList="nodownload" preload="metadata" style="border-radius: 8px; object-fit: cover;">
-            <source src="./photo/三段跳-min.mp4" type="video/mp4">
-            お使いのブラウザは動画タグに対応していません。
-          </video>
-        </div>
-      </div>
-    </div>
-    
-    <!-- フッター領域 -->
-    <div class="footer">
-      <!-- トップページへのリンク -->
-      <ul>
-        <li><a href="../index.html">～トップページへ～</a></li>
-      </ul>
-      <!-- コピーライト表記 -->
-      <ul>
-        <li>© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</li>
-      </ul>
-    </div>
+      </section>
+    </main>
 
-    <!-- ===============================================
-         スクリプト：動画の最初のフレームを表示（iOS・Android対応）
-         =============================================== -->
-    <script>
-      // iOS・Android・PC全対応：最初のフレームをサムネとして表示するため0.1秒にシーク
-      document.querySelectorAll('video').forEach(function(video) {
-        // シーク関数を統一
-        function seekToStart() {
-          try {
-            video.currentTime = 0.1;
-          } catch (e) {
-            // シーク失敗時は何もしない
-          }
-        }
+    <footer class="site-footer">
+      <p class="footer-name">陸上競技部</p>
+      <p class="footer-school">宮城県工業高等学校</p>
 
-        // iOS・Android・PC対応：メタデータ読み込み完了時
-        video.addEventListener('loadedmetadata', seekToStart);
-        
-        // Android・低スペック端末対応：メディアの最初のフレームが利用可能になった時点
-        video.addEventListener('loadeddata', seekToStart);
-        
-        // Android対応：再生可能になった時点でシーク
-        video.addEventListener('canplay', function() {
-          if (video.currentTime === 0) {
-            seekToStart();
-          }
-        }, { once: true });
+      <nav class="footer-nav">
+        <a href="../index.html">トップ</a>
+        <a href="../rikubusyoukai/index.html">部紹介</a>
+        <a href="./index.html">ギャラリー</a>
+        <a href="../schedule/index.html">スケジュール</a>
+        <a href="../komonntobuinnyori/index.html">顧問・部員より</a>
+      </nav>
 
-        // フォールバック：ページ読み込み完了後にシーク試行（未対応ブラウザ対策）
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', seekToStart);
-          window.addEventListener('load', seekToStart);
-        } else {
-          // ページが既に読み込まれている場合は即座にシーク試行
-          seekToStart();
-        }
+      <p class="footer-copy">© 2026 安倍直希・宮城県工業高等学校 情報技術科・陸上競技部</p>
+    </footer>
 
-        // タイムアウト対策：1秒後に再度シーク試行（ネットワーク遅延対策）
-        setTimeout(seekToStart, 1000);
-      });
-    </script>
-
-    <!-- ===============================================
-         スクリプト：画像タップ切り替え機能
-         クリック/タップで画像を切り替える
-         =============================================== -->
-    <script>
-      // タップで画像を切り替える機能
-      const imgHovers = document.querySelectorAll('.img-hover');
-
-      imgHovers.forEach(imgHover => {
-        // クリック/タップイベント（両方のデバイスに対応）
-        imgHover.addEventListener('click', () => {
-          // activeクラスをトグル（ON/OFF切り替え）
-          imgHover.classList.toggle('active');
-        });
-      });
-    </script>
-
-    <!-- ===============================================
-         スクリプト：画像・動画の保護機構
-         =============================================== -->
-    <script>
-      // 右クリックコンテキストメニューを防止
-      document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        return false;
-      });
-
-      // iPhone および Android での長押し保存を防止
-      document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
-
-      // タッチムーブ時の長押しメニュー防止
-      document.addEventListener('touchmove', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
-
-      // タッチエンド時の処理
-      document.addEventListener('touchend', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-          e.preventDefault();
-          return false;
-        }
-      }, { passive: false });
-
-      // Android向け: ドラッグスタートの防止
-      document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-          e.preventDefault();
-          return false;
-        }
-      });
-
-      // 画像と動画の選択を防止（ブラウザ右クリックメニューの「保存」対策）
-      document.addEventListener('selectstart', function(e) {
-        if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-          e.preventDefault();
-          return false;
-        }
-      });
-
-      // キーボードショートカットによる保存を防止
-      document.addEventListener('keydown', function(e) {
-        // Ctrl+S または Cmd+S (保存)
-        if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+Shift+S または Cmd+Shift+S (名前を付けて保存)
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') {
-          e.preventDefault();
-          return false;
-        }
-        // F12 (開発者ツール) を防止（オプション）
-        if (e.key === 'F12') {
-          e.preventDefault();
-          return false;
-        }
-        // Ctrl+Shift+I または Cmd+Option+I (開発者ツール)
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
-          e.preventDefault();
-          return false;
-        }
-      });
-    </script>
+    <script src="../script.js?v=1"></script>
   </body>
 </html>
